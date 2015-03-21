@@ -1,0 +1,102 @@
+[
+ {
+  "count": 56, 
+  "event": "Left foot amputation status"
+ }, 
+ {
+  "count": 91, 
+  "event": "Chronic Renal Failure"
+ }, 
+ {
+  "count": 107, 
+  "event": "Care involving other physical therapy"
+ }, 
+ {
+  "count": 115, 
+  "event": "Embolic Stroke"
+ }, 
+ {
+  "count": 1, 
+  "event": "Open wound of right hip"
+ }, 
+ {
+  "count": 36, 
+  "event": "Disarticulation of right hip status"
+ }, 
+ {
+  "count": 582, 
+  "event": "General medical examination"
+ }, 
+ {
+  "count": 1, 
+  "event": "critical hysteria"
+ }, 
+ {
+  "count": 38, 
+  "event": "Disarticulation of right shoulder status"
+ }, 
+ {
+  "count": 6, 
+  "event": "Routine infant or child health check"
+ }, 
+ {
+  "count": 464, 
+  "event": "Chronic Obstructive Pulmonary Disease"
+ }, 
+ {
+  "count": 72, 
+  "event": "Myocardial Infarction"
+ }, 
+ {
+  "count": 1, 
+  "event": "Attn removal of sutures"
+ }, 
+ {
+  "count": 549, 
+  "event": "Type 1 Diabetes"
+ }, 
+ {
+  "count": 30, 
+  "event": "Kidney Stones"
+ }, 
+ {
+  "count": 1, 
+  "event": "critical distress"
+ }, 
+ {
+  "count": 2, 
+  "event": "critical agony"
+ }, 
+ {
+  "count": 2, 
+  "event": "Open wound of left foot"
+ }, 
+ {
+  "count": 177, 
+  "event": "Pyelonephritis"
+ }, 
+ {
+  "count": 182, 
+  "event": "Type 2 Diabetes"
+ }, 
+ {
+  "count": 91, 
+  "event": "Chronic Congestive Heart Failure"
+ }, 
+ {
+  "count": 176, 
+  "event": "Acute Renal Failure"
+ }, 
+ {
+  "count": 1, 
+  "event": "Burn of right shoulder"
+ }, 
+ {
+  "count": 112, 
+  "event": "Hypertension"
+ }, 
+ {
+  "count": 170, 
+  "event": "Hemorrhagic Stroke"
+ }
+]

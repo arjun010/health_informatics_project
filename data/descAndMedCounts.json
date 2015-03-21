@@ -1,0 +1,463 @@
+[
+ {
+  "event": "Left foot amputation status", 
+  "medicationList": [
+   {
+    "count": 2, 
+    "drugQuantity": 100, 
+    "drugName": "vicodin HP 10-300"
+   }, 
+   {
+    "count": 2, 
+    "drugQuantity": 120, 
+    "drugName": "acetaminophen"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 90, 
+    "drugName": "oxycontin 10"
+   }
+  ]
+ }, 
+ {
+  "event": "Chronic Renal Failure", 
+  "medicationList": [
+   {
+    "count": 61, 
+    "drugQuantity": 30, 
+    "drugName": "Lisinopril"
+   }, 
+   {
+    "count": 2, 
+    "drugQuantity": 30, 
+    "drugName": "Irbesartan"
+   }
+  ]
+ }, 
+ {
+  "event": "Care involving other physical therapy", 
+  "medicationList": []
+ }, 
+ {
+  "event": "Embolic Stroke", 
+  "medicationList": [
+   {
+    "count": 32, 
+    "drugQuantity": 67, 
+    "drugName": "ACTIVASE"
+   }
+  ]
+ }, 
+ {
+  "event": "Open wound of right hip", 
+  "medicationList": []
+ }, 
+ {
+  "event": "Disarticulation of right hip status", 
+  "medicationList": [
+   {
+    "count": 1, 
+    "drugQuantity": 100, 
+    "drugName": "vicodin HP 10-300"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 90, 
+    "drugName": "Ibuprofen"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 90, 
+    "drugName": "oxycontin 10"
+   }
+  ]
+ }, 
+ {
+  "event": "General medical examination", 
+  "medicationList": []
+ }, 
+ {
+  "event": "critical hysteria", 
+  "medicationList": []
+ }, 
+ {
+  "event": "Disarticulation of right shoulder status", 
+  "medicationList": [
+   {
+    "count": 1, 
+    "drugQuantity": 100, 
+    "drugName": "vicodin HP 10-300"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 120, 
+    "drugName": "acetaminophen"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 90, 
+    "drugName": "Ibuprofen"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 100, 
+    "drugName": "oxycodone-acetaminophen 10-325"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 90, 
+    "drugName": "oxycontin 10"
+   }
+  ]
+ }, 
+ {
+  "event": "Routine infant or child health check", 
+  "medicationList": []
+ }, 
+ {
+  "event": "Chronic Obstructive Pulmonary Disease", 
+  "medicationList": [
+   {
+    "count": 6, 
+    "drugQuantity": 20, 
+    "drugName": "Prednisone"
+   }, 
+   {
+    "count": 3, 
+    "drugQuantity": 3000, 
+    "drugName": "salmeterol"
+   }, 
+   {
+    "count": 3, 
+    "drugQuantity": 120, 
+    "drugName": "Theophylline"
+   }, 
+   {
+    "count": 45, 
+    "drugQuantity": 4320, 
+    "drugName": "OMS 50"
+   }
+  ]
+ }, 
+ {
+  "event": "Myocardial Infarction", 
+  "medicationList": [
+   {
+    "count": 5, 
+    "drugQuantity": 1, 
+    "drugName": "Captopril"
+   }, 
+   {
+    "count": 9, 
+    "drugQuantity": 30, 
+    "drugName": "metoprolol"
+   }, 
+   {
+    "count": 3, 
+    "drugQuantity": 1, 
+    "drugName": "Nitroglycerin"
+   }, 
+   {
+    "count": 5, 
+    "drugQuantity": 10, 
+    "drugName": "Nitroglycerin"
+   }, 
+   {
+    "count": 2, 
+    "drugQuantity": 1, 
+    "drugName": "ATNATIV"
+   }, 
+   {
+    "count": 8, 
+    "drugQuantity": 30, 
+    "drugName": "Aspirin"
+   }
+  ]
+ }, 
+ {
+  "event": "Attn removal of sutures", 
+  "medicationList": [
+   {
+    "count": 1, 
+    "drugQuantity": 90, 
+    "drugName": "oxycontin 10"
+   }
+  ]
+ }, 
+ {
+  "event": "Type 1 Diabetes", 
+  "medicationList": [
+   {
+    "count": 16, 
+    "drugQuantity": 60, 
+    "drugName": "Insulin Nph"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 90, 
+    "drugName": "HUMALOG"
+   }, 
+   {
+    "count": 24, 
+    "drugQuantity": 90, 
+    "drugName": "Insulin Nph"
+   }, 
+   {
+    "count": 2, 
+    "drugQuantity": 90, 
+    "drugName": "Insulin Lente"
+   }, 
+   {
+    "count": 10, 
+    "drugQuantity": 1, 
+    "drugName": "Insulin Reg"
+   }, 
+   {
+    "count": 21, 
+    "drugQuantity": 1, 
+    "drugName": "Potassium Chl"
+   }, 
+   {
+    "count": 14, 
+    "drugQuantity": 30, 
+    "drugName": "insulin aspart"
+   }, 
+   {
+    "count": 9, 
+    "drugQuantity": 3, 
+    "drugName": "LANTUS"
+   }
+  ]
+ }, 
+ {
+  "event": "Kidney Stones", 
+  "medicationList": [
+   {
+    "count": 8, 
+    "drugQuantity": 1, 
+    "drugName": "Morphine"
+   }, 
+   {
+    "count": 2, 
+    "drugQuantity": 30, 
+    "drugName": "Allopurinol"
+   }, 
+   {
+    "count": 7, 
+    "drugQuantity": 60, 
+    "drugName": "Furosemide"
+   }, 
+   {
+    "count": 11, 
+    "drugQuantity": 20, 
+    "drugName": "Ciprofloxacin"
+   }, 
+   {
+    "count": 2, 
+    "drugQuantity": 90, 
+    "drugName": "Allopurinol"
+   }
+  ]
+ }, 
+ {
+  "event": "critical distress", 
+  "medicationList": []
+ }, 
+ {
+  "event": "critical agony", 
+  "medicationList": []
+ }, 
+ {
+  "event": "Open wound of left foot", 
+  "medicationList": []
+ }, 
+ {
+  "event": "Pyelonephritis", 
+  "medicationList": [
+   {
+    "count": 1, 
+    "drugQuantity": 10, 
+    "drugName": "LEVAQUIN"
+   }, 
+   {
+    "count": 11, 
+    "drugQuantity": 200, 
+    "drugName": "Cefadroxil"
+   }, 
+   {
+    "count": 6, 
+    "drugQuantity": 10, 
+    "drugName": "Levofloxacin"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 20, 
+    "drugName": "BACTRIM DS"
+   }, 
+   {
+    "count": 94, 
+    "drugQuantity": 20, 
+    "drugName": "Ciprofloxacin"
+   }, 
+   {
+    "count": 4, 
+    "drugQuantity": 1, 
+    "drugName": "Gentamicin"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 30, 
+    "drugName": "trimethoprim"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 3, 
+    "drugName": "Tobramycin"
+   }
+  ]
+ }, 
+ {
+  "event": "Type 2 Diabetes", 
+  "medicationList": [
+   {
+    "count": 1, 
+    "drugQuantity": 60, 
+    "drugName": "Insulin Nph"
+   }, 
+   {
+    "count": 9, 
+    "drugQuantity": 30, 
+    "drugName": "glyburide"
+   }, 
+   {
+    "count": 5, 
+    "drugQuantity": 90, 
+    "drugName": "Insulin,Ultralente"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 30, 
+    "drugName": "glimepiride"
+   }
+  ]
+ }, 
+ {
+  "event": "Chronic Congestive Heart Failure", 
+  "medicationList": [
+   {
+    "count": 34, 
+    "drugQuantity": 60, 
+    "drugName": "enalapril"
+   }, 
+   {
+    "count": 9, 
+    "drugQuantity": 60, 
+    "drugName": "valsartan"
+   }, 
+   {
+    "count": 23, 
+    "drugQuantity": 60, 
+    "drugName": "Propranolol"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 10, 
+    "drugName": "Furosemide"
+   }, 
+   {
+    "count": 3, 
+    "drugQuantity": 120, 
+    "drugName": "Propranolol"
+   }
+  ]
+ }, 
+ {
+  "event": "Acute Renal Failure", 
+  "medicationList": [
+   {
+    "count": 16, 
+    "drugQuantity": 1000, 
+    "drugName": "Isotonic Saline (0.9%)"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 30, 
+    "drugName": "AVAPRO"
+   }, 
+   {
+    "count": 85, 
+    "drugQuantity": 750, 
+    "drugName": "Isotonic Saline (0.9%)"
+   }
+  ]
+ }, 
+ {
+  "event": "Burn of right shoulder", 
+  "medicationList": []
+ }, 
+ {
+  "event": "Hypertension", 
+  "medicationList": [
+   {
+    "count": 2, 
+    "drugQuantity": 90, 
+    "drugName": "Labetalol"
+   }, 
+   {
+    "count": 12, 
+    "drugQuantity": 90, 
+    "drugName": "nifedipine"
+   }, 
+   {
+    "count": 18, 
+    "drugQuantity": 90, 
+    "drugName": "Hydrochlorothiazide"
+   }, 
+   {
+    "count": 3, 
+    "drugQuantity": 90, 
+    "drugName": "Lisinopril"
+   }, 
+   {
+    "count": 5, 
+    "drugQuantity": 60, 
+    "drugName": "valsartan"
+   }, 
+   {
+    "count": 1, 
+    "drugQuantity": 1, 
+    "drugName": "Labetalol"
+   }, 
+   {
+    "count": 8, 
+    "drugQuantity": 60, 
+    "drugName": "enalapril"
+   }, 
+   {
+    "count": 19, 
+    "drugQuantity": 30, 
+    "drugName": "Lisinopril"
+   }, 
+   {
+    "count": 6, 
+    "drugQuantity": 60, 
+    "drugName": "Metoprolol"
+   }
+  ]
+ }, 
+ {
+  "event": "Hemorrhagic Stroke", 
+  "medicationList": [
+   {
+    "count": 5, 
+    "drugQuantity": 225, 
+    "drugName": "mannitol"
+   }, 
+   {
+    "count": 53, 
+    "drugQuantity": 1, 
+    "drugName": "protamine sulfate"
+   }
+  ]
+ }
+]
