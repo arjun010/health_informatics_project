@@ -33,7 +33,7 @@ function generate_histogram(values){
 	  .append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	var bar = svg.selectAll(".bar")
+	var bar = svg.selectAll(".barz")
 		.data(data)
 	  .enter().append("g")
 		.attr("class", "bar")
