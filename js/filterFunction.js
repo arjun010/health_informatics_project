@@ -162,6 +162,19 @@ function applyFilters(){
 			}
 		}
 	}
+	for(var i=0;i<filteredChronologicalVisData.length;i++){
+		var currentEncounterList = filteredChronologicalVisData[i]["encounterList"];
+		var filteredEncounterList = [];
+		for(var j=0;j<currentEncounterList.length;j++){
+			var currentEncounterYear = parseInt(currentEncounterList[j]["date"].split("-")[0]);
+			if(currentEncounterYear>=startYear && currentEncounterYear<=endYear){
+				filteredEncounterList.push(currentEncounterList[j])
+			}
+		}
+		filteredChronologicalVisData[i]["encounterList"] = filteredEncounterList;
+		filteredChronologicalVisData[i]["encounterCount"] = filteredEncounterList.length;
+	}
+	//console.log(filteredChronologicalVisData)
 	//console.log(filteredChronologicalVisData.length)
 	
 	//BUBBLE CHART FUNCTION CALL HERE

@@ -303,11 +303,11 @@
 		tempImmunizationsArr = unique(tempImmunizationsArr.sort())
 
 		for(var i=0;i<tempJobsArr.length;i++){
-			$('#joboptionlist').append('<input onchange="applyFilters();" type="checkbox" checked="checked" value="'+tempJobsArr[i]+'" /> ' + tempJobsArr[i] + '<br />');
+			$('#joboptionlist').append('<input onchange="applyFilters();" checked="checked" type="checkbox" value="'+tempJobsArr[i]+'" /> ' + tempJobsArr[i] + '<br />');
 		}
 
 		for(var i=0;i<tempMarStatusArr.length;i++){
-			$('#marriagestatusoptionlist').append('<input onchange="applyFilters();" type="checkbox" checked="checked" value="'+tempMarStatusArr[i]+'" /> ' + tempMarStatusArr[i] + '<br />');
+			$('#marriagestatusoptionlist').append('<input onchange="applyFilters();" checked="checked" type="checkbox" value="'+tempMarStatusArr[i]+'" /> ' + tempMarStatusArr[i] + '<br />');
 		}
 
 		for(var i=0;i<tempImmunizationsArr.length;i++){
