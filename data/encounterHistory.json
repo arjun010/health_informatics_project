@@ -1,16 +1,16 @@
-{
- "830000095-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 68, 
-  "job": "Herder", 
-  "immunization": [
+[
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax", 
    "Tetanus and diphtheria toxoids adsorbed", 
    "Pnu-Imune 23"
   ], 
-  "orderedEncounterList": [
+  "age": 68, 
+  "state": "GA", 
+  "memberId": "830000095-01", 
+  "job": "Herder", 
+  "encounterList": [
    {
     "date": "2005-02-03", 
     "event": "outpatient_medical"
@@ -242,15 +242,15 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "358020000-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 41, 
-  "job": "Veterinary Assistant", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 41, 
+  "state": "GA", 
+  "memberId": "358020000-01", 
+  "job": "Veterinary Assistant", 
+  "encounterList": [
    {
     "date": "2005-07-11", 
     "event": "outpatient_medical"
@@ -406,16 +406,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "578007262-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 65, 
-  "job": "Boilermaker", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax"
   ], 
-  "orderedEncounterList": [
+  "age": 65, 
+  "state": "GA", 
+  "memberId": "578007262-01", 
+  "job": "Boilermaker", 
+  "encounterList": [
    {
     "date": "2005-11-18", 
     "event": "outpatient_medical"
@@ -555,15 +555,15 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "000967726-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 44, 
-  "job": "Courier", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 44, 
+  "state": "GA", 
+  "memberId": "000967726-01", 
+  "job": "Courier", 
+  "encounterList": [
    {
     "date": "2005-09-06", 
     "event": "outpatient_medical"
@@ -679,17 +679,17 @@
   ], 
   "marriage_status": "Single"
  }, 
- "787960000-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 64, 
-  "job": "Public Speaker", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 64, 
+  "state": "GA", 
+  "memberId": "787960000-01", 
+  "job": "Public Speaker", 
+  "encounterList": [
    {
     "date": "2005-06-02", 
     "event": "outpatient_medical"
@@ -1001,13 +1001,13 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "000424272-01": {
-  "state": "GA", 
-  "gender": "male", 
+ {
+  "immunizations": [], 
   "age": 67, 
+  "state": "GA", 
+  "memberId": "000424272-01", 
   "job": "Sail Maker", 
-  "immunization": [], 
-  "orderedEncounterList": [
+  "encounterList": [
    {
     "date": "2005-04-04", 
     "event": "outpatient_medical"
@@ -1099,15 +1099,15 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "083003009-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 34, 
-  "job": "Musician", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 34, 
+  "state": "GA", 
+  "memberId": "083003009-01", 
+  "job": "Musician", 
+  "encounterList": [
    {
     "date": "2006-05-02", 
     "event": "outpatient_medical"
@@ -1163,16 +1163,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666349098-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 41, 
-  "job": "Librarian", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 41, 
+  "state": "GA", 
+  "memberId": "666349098-01", 
+  "job": "Librarian", 
+  "encounterList": [
    {
     "date": "2005-06-24", 
     "event": "outpatient_medical"
@@ -1312,16 +1312,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "000113209-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 52, 
-  "job": "Painter", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 52, 
+  "state": "GA", 
+  "memberId": "000113209-01", 
+  "job": "Painter", 
+  "encounterList": [
    {
     "date": "2005-01-03", 
     "event": "outpatient_medical"
@@ -1517,13 +1517,13 @@
   ], 
   "marriage_status": "Widowed"
  }, 
- "852001866-01": {
-  "state": "GA", 
-  "gender": "male", 
+ {
+  "immunizations": [], 
   "age": 36, 
+  "state": "GA", 
+  "memberId": "852001866-01", 
   "job": "Gemologist", 
-  "immunization": [], 
-  "orderedEncounterList": [
+  "encounterList": [
    {
     "date": "2005-10-03", 
     "event": "outpatient_medical"
@@ -1655,13 +1655,13 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666214171-01": {
-  "state": "GA", 
-  "gender": "female", 
+ {
+  "immunizations": [], 
   "age": 63, 
+  "state": "GA", 
+  "memberId": "666214171-01", 
   "job": "Maid", 
-  "immunization": [], 
-  "orderedEncounterList": [
+  "encounterList": [
    {
     "date": "2005-08-24", 
     "event": "outpatient_medical"
@@ -1849,16 +1849,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666690085-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 37, 
-  "job": "Author", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 37, 
+  "state": "GA", 
+  "memberId": "666690085-01", 
+  "job": "Author", 
+  "encounterList": [
    {
     "date": "2005-02-11", 
     "event": "outpatient_medical"
@@ -2058,16 +2058,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "802001361-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 58, 
-  "job": "Lead Worker", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 58, 
+  "state": "GA", 
+  "memberId": "802001361-01", 
+  "job": "Lead Worker", 
+  "encounterList": [
    {
     "date": "2005-05-13", 
     "event": "outpatient_medical"
@@ -2319,16 +2319,16 @@
   ], 
   "marriage_status": "Widowed"
  }, 
- "000330124-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 39, 
-  "job": "Graphic Designer", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 39, 
+  "state": "GA", 
+  "memberId": "000330124-01", 
+  "job": "Graphic Designer", 
+  "encounterList": [
    {
     "date": "2005-06-29", 
     "event": "outpatient_emergency"
@@ -2492,16 +2492,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000138144-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 46, 
-  "job": "Flight Attendant", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 46, 
+  "state": "GA", 
+  "memberId": "000138144-01", 
+  "job": "Flight Attendant", 
+  "encounterList": [
    {
     "date": "2005-09-07", 
     "event": "outpatient_medical"
@@ -2673,16 +2673,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000569868-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 45, 
-  "job": "Street Sweeper", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 45, 
+  "state": "GA", 
+  "memberId": "000569868-01", 
+  "job": "Street Sweeper", 
+  "encounterList": [
    {
     "date": "2005-07-05", 
     "event": "outpatient_medical"
@@ -2838,18 +2838,18 @@
   ], 
   "marriage_status": "Single"
  }, 
- "103008409-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 67, 
-  "job": "Teacher", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax", 
    "Tetanus and diphtheria toxoids adsorbed", 
    "Pnu-Imune 23"
   ], 
-  "orderedEncounterList": [
+  "age": 67, 
+  "state": "GA", 
+  "memberId": "103008409-01", 
+  "job": "Teacher", 
+  "encounterList": [
    {
     "date": "2005-04-08", 
     "event": "outpatient_medical"
@@ -3145,17 +3145,17 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "666867671-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 67, 
-  "job": "Librarian", 
-  "immunization": [
+ {
+  "immunizations": [
    "Zostavax", 
    "Tetanus and diphtheria toxoids adsorbed", 
    "Pnu-Imune 23"
   ], 
-  "orderedEncounterList": [
+  "age": 67, 
+  "state": "GA", 
+  "memberId": "666867671-01", 
+  "job": "Librarian", 
+  "encounterList": [
    {
     "date": "2005-07-21", 
     "event": "outpatient_medical"
@@ -3367,17 +3367,17 @@
   ], 
   "marriage_status": "Single"
  }, 
- "207700000-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 32, 
-  "job": "Librarian", 
-  "immunization": [
+ {
+  "immunizations": [
    "Boostrix", 
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 32, 
+  "state": "GA", 
+  "memberId": "207700000-01", 
+  "job": "Librarian", 
+  "encounterList": [
    {
     "date": "2005-01-03", 
     "event": "outpatient_medical"
@@ -3533,16 +3533,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666351572-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 36, 
-  "job": "Welder", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 36, 
+  "state": "GA", 
+  "memberId": "666351572-01", 
+  "job": "Welder", 
+  "encounterList": [
    {
     "date": "2005-06-20", 
     "event": "outpatient_medical"
@@ -3686,16 +3686,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000001751-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 57, 
-  "job": "Locksmith", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 57, 
+  "state": "GA", 
+  "memberId": "000001751-01", 
+  "job": "Locksmith", 
+  "encounterList": [
    {
     "date": "2005-09-07", 
     "event": "outpatient_medical"
@@ -3931,16 +3931,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "771130000-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 50, 
-  "job": "Dog Walker", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 50, 
+  "state": "GA", 
+  "memberId": "771130000-01", 
+  "job": "Dog Walker", 
+  "encounterList": [
    {
     "date": "2005-03-21", 
     "event": "outpatient_medical"
@@ -4128,16 +4128,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "941001175-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 39, 
-  "job": "Personal Trainer", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 39, 
+  "state": "GA", 
+  "memberId": "941001175-01", 
+  "job": "Personal Trainer", 
+  "encounterList": [
    {
     "date": "2005-01-03", 
     "event": "outpatient_medical"
@@ -4261,13 +4261,13 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000592301-01": {
-  "state": "GA", 
-  "gender": "female", 
+ {
+  "immunizations": [], 
   "age": 43, 
+  "state": "GA", 
+  "memberId": "000592301-01", 
   "job": "Sound Engineer", 
-  "immunization": [], 
-  "orderedEncounterList": [
+  "encounterList": [
    {
     "date": "2005-04-18", 
     "event": "outpatient_medical"
@@ -4503,16 +4503,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666383984-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 43, 
-  "job": "Fortune Teller", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 43, 
+  "state": "GA", 
+  "memberId": "666383984-01", 
+  "job": "Fortune Teller", 
+  "encounterList": [
    {
     "date": "2005-02-28", 
     "event": "outpatient_medical"
@@ -4764,17 +4764,17 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "666849638-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 66, 
-  "job": "Ergonomist", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 66, 
+  "state": "GA", 
+  "memberId": "666849638-01", 
+  "job": "Ergonomist", 
+  "encounterList": [
    {
     "date": "2005-07-19", 
     "event": "outpatient_medical"
@@ -5038,16 +5038,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "568001602-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 43, 
-  "job": "Crystallographer", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 43, 
+  "state": "GA", 
+  "memberId": "568001602-01", 
+  "job": "Crystallographer", 
+  "encounterList": [
    {
     "date": "2005-06-30", 
     "event": "outpatient_medical"
@@ -5227,13 +5227,13 @@
   ], 
   "marriage_status": "Single"
  }, 
- "090450000-01": {
-  "state": "GA", 
-  "gender": "male", 
+ {
+  "immunizations": [], 
   "age": 56, 
+  "state": "GA", 
+  "memberId": "090450000-01", 
   "job": "Negotiator", 
-  "immunization": [], 
-  "orderedEncounterList": [
+  "encounterList": [
    {
     "date": "2005-08-04", 
     "event": "outpatient_medical"
@@ -5461,17 +5461,17 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "117300000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 33, 
-  "job": "Manager", 
-  "immunization": [
+ {
+  "immunizations": [
    "Boostrix", 
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 33, 
+  "state": "GA", 
+  "memberId": "117300000-01", 
+  "job": "Manager", 
+  "encounterList": [
    {
     "date": "2005-01-31", 
     "event": "outpatient_medical"
@@ -5603,17 +5603,17 @@
   ], 
   "marriage_status": "Single"
  }, 
- "202002214-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 65, 
-  "job": "Nanny", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 65, 
+  "state": "GA", 
+  "memberId": "202002214-01", 
+  "job": "Nanny", 
+  "encounterList": [
    {
     "date": "2005-04-25", 
     "event": "outpatient_medical"
@@ -5873,15 +5873,15 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666206785-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 44, 
-  "job": "Nursemaid", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 44, 
+  "state": "GA", 
+  "memberId": "666206785-01", 
+  "job": "Nursemaid", 
+  "encounterList": [
    {
     "date": "2005-02-28", 
     "event": "outpatient_medical"
@@ -6109,16 +6109,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "714009070-02": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 49, 
-  "job": "Butler", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 49, 
+  "state": "GA", 
+  "memberId": "714009070-02", 
+  "job": "Butler", 
+  "encounterList": [
    {
     "date": "2005-01-12", 
     "event": "outpatient_medical"
@@ -6386,16 +6386,16 @@
   ], 
   "marriage_status": "Married"
  }, 
- "714009070-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 56, 
-  "job": "Furrier", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 56, 
+  "state": "GA", 
+  "memberId": "714009070-01", 
+  "job": "Furrier", 
+  "encounterList": [
    {
     "date": "2005-02-03", 
     "event": "outpatient_medical"
@@ -6615,16 +6615,16 @@
   ], 
   "marriage_status": "Married"
  }, 
- "412140000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 63, 
-  "job": "Food Critic", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 63, 
+  "state": "GA", 
+  "memberId": "412140000-01", 
+  "job": "Food Critic", 
+  "encounterList": [
    {
     "date": "2005-01-24", 
     "event": "outpatient_medical"
@@ -6840,17 +6840,17 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "655650000-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 32, 
-  "job": "Real Estate Developer", 
-  "immunization": [
+ {
+  "immunizations": [
    "Boostrix", 
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 32, 
+  "state": "GA", 
+  "memberId": "655650000-01", 
+  "job": "Real Estate Developer", 
+  "encounterList": [
    {
     "date": "2005-03-07", 
     "event": "outpatient_medical"
@@ -7042,16 +7042,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "918990000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 51, 
-  "job": "Notary", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 51, 
+  "state": "GA", 
+  "memberId": "918990000-01", 
+  "job": "Notary", 
+  "encounterList": [
    {
     "date": "2005-05-09", 
     "event": "outpatient_medical"
@@ -7307,16 +7307,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666522513-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 48, 
-  "job": "Trader", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 48, 
+  "state": "GA", 
+  "memberId": "666522513-01", 
+  "job": "Trader", 
+  "encounterList": [
    {
     "date": "2005-11-21", 
     "event": "outpatient_medical"
@@ -7456,15 +7456,15 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "140009875-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 52, 
-  "job": "Gastroenterologist", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 52, 
+  "state": "GA", 
+  "memberId": "140009875-01", 
+  "job": "Gastroenterologist", 
+  "encounterList": [
    {
     "date": "2005-01-27", 
     "event": "outpatient_medical"
@@ -7740,16 +7740,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "050770000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 56, 
-  "job": "Editor", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 56, 
+  "state": "GA", 
+  "memberId": "050770000-01", 
+  "job": "Editor", 
+  "encounterList": [
    {
     "date": "2005-04-07", 
     "event": "outpatient_medical"
@@ -7977,16 +7977,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "000382751-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 59, 
-  "job": "Reporter", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 59, 
+  "state": "GA", 
+  "memberId": "000382751-01", 
+  "job": "Reporter", 
+  "encounterList": [
    {
     "date": "2005-07-27", 
     "event": "outpatient_medical"
@@ -8138,15 +8138,15 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "872770000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 57, 
-  "job": "Tanner", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 57, 
+  "state": "GA", 
+  "memberId": "872770000-01", 
+  "job": "Tanner", 
+  "encounterList": [
    {
     "date": "2005-05-16", 
     "event": "outpatient_medical"
@@ -8314,16 +8314,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "666638286-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 34, 
-  "job": "Brain Surgeon", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 34, 
+  "state": "GA", 
+  "memberId": "666638286-01", 
+  "job": "Brain Surgeon", 
+  "encounterList": [
    {
     "date": "2005-02-07", 
     "event": "outpatient_medical"
@@ -8463,16 +8463,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666655553-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 60, 
-  "job": "Sawmill Worker", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 60, 
+  "state": "GA", 
+  "memberId": "666655553-01", 
+  "job": "Sawmill Worker", 
+  "encounterList": [
    {
     "date": "2005-05-16", 
     "event": "outpatient_medical"
@@ -8748,15 +8748,15 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666063881-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 45, 
-  "job": "Anesthesiologist", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 45, 
+  "state": "GA", 
+  "memberId": "666063881-01", 
+  "job": "Anesthesiologist", 
+  "encounterList": [
    {
     "date": "2005-06-15", 
     "event": "outpatient_emergency"
@@ -8904,16 +8904,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "882003310-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 46, 
-  "job": "Information Designer", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 46, 
+  "state": "GA", 
+  "memberId": "882003310-01", 
+  "job": "Information Designer", 
+  "encounterList": [
    {
     "date": "2005-08-24", 
     "event": "outpatient_medical"
@@ -9073,16 +9073,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "000299742-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 43, 
-  "job": "Gamekeeper", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 43, 
+  "state": "GA", 
+  "memberId": "000299742-01", 
+  "job": "Gamekeeper", 
+  "encounterList": [
    {
     "date": "2005-01-21", 
     "event": "outpatient_medical"
@@ -9270,16 +9270,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "544470000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 48, 
-  "job": "Presenter", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 48, 
+  "state": "GA", 
+  "memberId": "544470000-01", 
+  "job": "Presenter", 
+  "encounterList": [
    {
     "date": "2005-04-18", 
     "event": "outpatient_medical"
@@ -9483,18 +9483,18 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000171598-02": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 20, 
-  "job": "Student", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Boostrix", 
    "Cervarix", 
    "Menactra"
   ], 
-  "orderedEncounterList": [
+  "age": 20, 
+  "state": "GA", 
+  "memberId": "000171598-02", 
+  "job": "Student", 
+  "encounterList": [
    {
     "date": "2006-12-04", 
     "event": "outpatient_medical"
@@ -9674,16 +9674,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000171598-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 39, 
-  "job": "First Mate", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 39, 
+  "state": "GA", 
+  "memberId": "000171598-01", 
+  "job": "First Mate", 
+  "encounterList": [
    {
     "date": "2005-10-06", 
     "event": "outpatient_medical"
@@ -9811,13 +9811,13 @@
   ], 
   "marriage_status": "Single"
  }, 
- "420006922-01": {
-  "state": "GA", 
-  "gender": "male", 
+ {
+  "immunizations": [], 
   "age": 31, 
+  "state": "GA", 
+  "memberId": "420006922-01", 
   "job": "Student", 
-  "immunization": [], 
-  "orderedEncounterList": [
+  "encounterList": [
    {
     "date": "2005-05-31", 
     "event": "outpatient_medical"
@@ -9869,16 +9869,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666643100-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 56, 
-  "job": "Negotiator", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 56, 
+  "state": "GA", 
+  "memberId": "666643100-01", 
+  "job": "Negotiator", 
+  "encounterList": [
    {
     "date": "2005-04-18", 
     "event": "outpatient_medical"
@@ -10134,16 +10134,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "297007842-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 47, 
-  "job": "Gun Smith", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 47, 
+  "state": "GA", 
+  "memberId": "297007842-01", 
+  "job": "Gun Smith", 
+  "encounterList": [
    {
     "date": "2005-04-06", 
     "event": "outpatient_emergency"
@@ -10327,17 +10327,17 @@
   ], 
   "marriage_status": "Single"
  }, 
- "955750000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 63, 
-  "job": "Cameraman", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed", 
    "Zostavax"
   ], 
-  "orderedEncounterList": [
+  "age": 63, 
+  "state": "GA", 
+  "memberId": "955750000-01", 
+  "job": "Cameraman", 
+  "encounterList": [
    {
     "date": "2005-04-25", 
     "event": "outpatient_medical"
@@ -10513,16 +10513,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "894010000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 55, 
-  "job": "Curator", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 55, 
+  "state": "GA", 
+  "memberId": "894010000-01", 
+  "job": "Curator", 
+  "encounterList": [
    {
     "date": "2005-09-16", 
     "event": "outpatient_medical"
@@ -10738,16 +10738,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "263009412-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 35, 
-  "job": "Cook", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 35, 
+  "state": "GA", 
+  "memberId": "263009412-01", 
+  "job": "Cook", 
+  "encounterList": [
    {
     "date": "2005-09-13", 
     "event": "outpatient_medical"
@@ -10843,16 +10843,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000367227-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 39, 
-  "job": "Street Sweeper", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 39, 
+  "state": "GA", 
+  "memberId": "000367227-01", 
+  "job": "Street Sweeper", 
+  "encounterList": [
    {
     "date": "2005-01-11", 
     "event": "outpatient_medical"
@@ -11000,16 +11000,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "937650000-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 42, 
-  "job": "Landlord", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 42, 
+  "state": "GA", 
+  "memberId": "937650000-01", 
+  "job": "Landlord", 
+  "encounterList": [
    {
     "date": "2005-03-12", 
     "event": "outpatient_emergency"
@@ -11269,16 +11269,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "666476868-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 46, 
-  "job": "Receptionist", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 46, 
+  "state": "GA", 
+  "memberId": "666476868-01", 
+  "job": "Receptionist", 
+  "encounterList": [
    {
     "date": "2005-03-16", 
     "event": "outpatient_emergency"
@@ -11426,15 +11426,15 @@
   ], 
   "marriage_status": "Widowed"
  }, 
- "666104226-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 42, 
-  "job": "Calligrapher", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 42, 
+  "state": "GA", 
+  "memberId": "666104226-01", 
+  "job": "Calligrapher", 
+  "encounterList": [
    {
     "date": "2005-02-04", 
     "event": "outpatient_medical"
@@ -11690,16 +11690,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "000091957-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 50, 
-  "job": "Therapist", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 50, 
+  "state": "GA", 
+  "memberId": "000091957-01", 
+  "job": "Therapist", 
+  "encounterList": [
    {
     "date": "2005-05-20", 
     "event": "outpatient_medical"
@@ -11923,15 +11923,15 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "666441365-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 57, 
-  "job": "Clockmaker", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 57, 
+  "state": "GA", 
+  "memberId": "666441365-01", 
+  "job": "Clockmaker", 
+  "encounterList": [
    {
     "date": "2005-08-29", 
     "event": "outpatient_medical"
@@ -12063,17 +12063,17 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "666804859-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 64, 
-  "job": "Presenter", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX", 
    "Zostavax"
   ], 
-  "orderedEncounterList": [
+  "age": 64, 
+  "state": "GA", 
+  "memberId": "666804859-01", 
+  "job": "Presenter", 
+  "encounterList": [
    {
     "date": "2005-01-18", 
     "event": "outpatient_medical"
@@ -12341,15 +12341,15 @@
   ], 
   "marriage_status": "Widowed"
  }, 
- "666170853-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 45, 
-  "job": "Dramatist", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 45, 
+  "state": "GA", 
+  "memberId": "666170853-01", 
+  "job": "Dramatist", 
+  "encounterList": [
    {
     "date": "2005-08-26", 
     "event": "outpatient_emergency"
@@ -12477,15 +12477,15 @@
   ], 
   "marriage_status": "Single"
  }, 
- "013003589-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 54, 
-  "job": "Lawyer", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 54, 
+  "state": "GA", 
+  "memberId": "013003589-01", 
+  "job": "Lawyer", 
+  "encounterList": [
    {
     "date": "2005-04-07", 
     "event": "outpatient_medical"
@@ -12717,16 +12717,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666115752-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 34, 
-  "job": "Corrector", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 34, 
+  "state": "GA", 
+  "memberId": "666115752-01", 
+  "job": "Corrector", 
+  "encounterList": [
    {
     "date": "2005-06-16", 
     "event": "outpatient_medical"
@@ -12874,16 +12874,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "067430000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 36, 
-  "job": "Rubbish Collector", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 36, 
+  "state": "GA", 
+  "memberId": "067430000-01", 
+  "job": "Rubbish Collector", 
+  "encounterList": [
    {
     "date": "2005-04-01", 
     "event": "outpatient_medical"
@@ -13019,16 +13019,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000050471-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 52, 
-  "job": "Secret Service Agent", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 52, 
+  "state": "GA", 
+  "memberId": "000050471-01", 
+  "job": "Secret Service Agent", 
+  "encounterList": [
    {
     "date": "2005-09-18", 
     "event": "outpatient_emergency"
@@ -13276,16 +13276,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "000607885-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 61, 
-  "job": "Shoemaker", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 61, 
+  "state": "GA", 
+  "memberId": "000607885-01", 
+  "job": "Shoemaker", 
+  "encounterList": [
    {
     "date": "2005-02-26", 
     "event": "outpatient_emergency"
@@ -13453,16 +13453,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000949115-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 45, 
-  "job": "Author", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 45, 
+  "state": "GA", 
+  "memberId": "000949115-01", 
+  "job": "Author", 
+  "encounterList": [
    {
     "date": "2005-08-16", 
     "event": "outpatient_medical"
@@ -13746,16 +13746,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "461850000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 51, 
-  "job": "Secretary", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 51, 
+  "state": "GA", 
+  "memberId": "461850000-01", 
+  "job": "Secretary", 
+  "encounterList": [
    {
     "date": "2005-05-24", 
     "event": "outpatient_medical"
@@ -13971,16 +13971,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "000581657-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 42, 
-  "job": "Monk", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 42, 
+  "state": "GA", 
+  "memberId": "000581657-01", 
+  "job": "Monk", 
+  "encounterList": [
    {
     "date": "2005-04-04", 
     "event": "outpatient_medical"
@@ -14108,17 +14108,17 @@
   ], 
   "marriage_status": "Single"
  }, 
- "250450000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 65, 
-  "job": "Trainer", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "Zostavax", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 65, 
+  "state": "GA", 
+  "memberId": "250450000-01", 
+  "job": "Trainer", 
+  "encounterList": [
    {
     "date": "2005-04-29", 
     "event": "outpatient_medical"
@@ -14286,17 +14286,17 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "864990000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 63, 
-  "job": "Gamekeeper", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX", 
    "Zostavax"
   ], 
-  "orderedEncounterList": [
+  "age": 63, 
+  "state": "GA", 
+  "memberId": "864990000-01", 
+  "job": "Gamekeeper", 
+  "encounterList": [
    {
     "date": "2005-04-05", 
     "event": "outpatient_emergency"
@@ -14504,16 +14504,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "333001307-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 52, 
-  "job": "Publisher", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 52, 
+  "state": "GA", 
+  "memberId": "333001307-01", 
+  "job": "Publisher", 
+  "encounterList": [
    {
     "date": "2005-08-01", 
     "event": "outpatient_medical"
@@ -14753,16 +14753,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "000548792-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 42, 
-  "job": "Gemologist", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 42, 
+  "state": "GA", 
+  "memberId": "000548792-01", 
+  "job": "Gemologist", 
+  "encounterList": [
    {
     "date": "2005-04-06", 
     "event": "outpatient_medical"
@@ -14938,16 +14938,16 @@
   ], 
   "marriage_status": "Widowed"
  }, 
- "000658333-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 32, 
-  "job": "Student", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 32, 
+  "state": "GA", 
+  "memberId": "000658333-01", 
+  "job": "Student", 
+  "encounterList": [
    {
     "date": "2005-01-12", 
     "event": "outpatient_medical"
@@ -15063,16 +15063,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666151406-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 41, 
-  "job": "Fitter", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 41, 
+  "state": "GA", 
+  "memberId": "666151406-01", 
+  "job": "Fitter", 
+  "encounterList": [
    {
     "date": "2007-08-24", 
     "event": "outpatient_medical"
@@ -15152,15 +15152,15 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000769867-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 55, 
-  "job": "Linguist", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 55, 
+  "state": "GA", 
+  "memberId": "000769867-01", 
+  "job": "Linguist", 
+  "encounterList": [
    {
     "date": "2005-06-18", 
     "event": "outpatient_emergency"
@@ -15344,16 +15344,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "409000151-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 48, 
-  "job": "Hotel Manager", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 48, 
+  "state": "GA", 
+  "memberId": "409000151-01", 
+  "job": "Hotel Manager", 
+  "encounterList": [
    {
     "date": "2005-03-29", 
     "event": "outpatient_medical"
@@ -15597,16 +15597,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "666888721-02": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 54, 
-  "job": "Street Sweeper", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 54, 
+  "state": "GA", 
+  "memberId": "666888721-02", 
+  "job": "Street Sweeper", 
+  "encounterList": [
    {
     "date": "2005-07-06", 
     "event": "outpatient_emergency"
@@ -15834,16 +15834,16 @@
   ], 
   "marriage_status": "Married"
  }, 
- "666888721-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 58, 
-  "job": "Vicar", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 58, 
+  "state": "GA", 
+  "memberId": "666888721-01", 
+  "job": "Vicar", 
+  "encounterList": [
    {
     "date": "2005-01-20", 
     "event": "outpatient_medical"
@@ -16107,15 +16107,15 @@
   ], 
   "marriage_status": "Married"
  }, 
- "931550000-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 52, 
-  "job": "Nurse", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 52, 
+  "state": "GA", 
+  "memberId": "931550000-01", 
+  "job": "Nurse", 
+  "encounterList": [
    {
     "date": "2005-07-11", 
     "event": "outpatient_medical"
@@ -16299,16 +16299,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "000199767-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 41, 
-  "job": "Chief Technology Officer", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 41, 
+  "state": "GA", 
+  "memberId": "000199767-01", 
+  "job": "Chief Technology Officer", 
+  "encounterList": [
    {
     "date": "2005-03-24", 
     "event": "outpatient_medical"
@@ -16572,13 +16572,13 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "335006765-01": {
-  "state": "GA", 
-  "gender": "male", 
+ {
+  "immunizations": [], 
   "age": 50, 
+  "state": "GA", 
+  "memberId": "335006765-01", 
   "job": "Tax Collector", 
-  "immunization": [], 
-  "orderedEncounterList": [
+  "encounterList": [
    {
     "date": "2005-01-01", 
     "event": "outpatient_emergency"
@@ -16822,16 +16822,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "000457683-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 64, 
-  "job": "Mason", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax"
   ], 
-  "orderedEncounterList": [
+  "age": 64, 
+  "state": "GA", 
+  "memberId": "000457683-01", 
+  "job": "Mason", 
+  "encounterList": [
    {
     "date": "2005-03-21", 
     "event": "outpatient_medical"
@@ -17019,16 +17019,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "000854713-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 44, 
-  "job": "Heavy Equipment Operator", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 44, 
+  "state": "GA", 
+  "memberId": "000854713-01", 
+  "job": "Heavy Equipment Operator", 
+  "encounterList": [
    {
     "date": "2005-04-11", 
     "event": "outpatient_medical"
@@ -17268,17 +17268,17 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "560001244-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 67, 
-  "job": "Fashion Designer", 
-  "immunization": [
+ {
+  "immunizations": [
    "Zostavax", 
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 67, 
+  "state": "GA", 
+  "memberId": "560001244-01", 
+  "job": "Fashion Designer", 
+  "encounterList": [
    {
     "date": "2005-06-23", 
     "event": "outpatient_emergency"
@@ -17510,17 +17510,17 @@
   ], 
   "marriage_status": "Single"
  }, 
- "018003376-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 64, 
-  "job": "Social Worker", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 64, 
+  "state": "GA", 
+  "memberId": "018003376-01", 
+  "job": "Social Worker", 
+  "encounterList": [
    {
     "date": "2005-05-13", 
     "event": "outpatient_emergency"
@@ -17836,16 +17836,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "052000568-02": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 51, 
-  "job": "Podiatrist", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 51, 
+  "state": "GA", 
+  "memberId": "052000568-02", 
+  "job": "Podiatrist", 
+  "encounterList": [
    {
     "date": "2005-04-04", 
     "event": "outpatient_medical"
@@ -18085,16 +18085,16 @@
   ], 
   "marriage_status": "Married"
  }, 
- "052000568-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 57, 
-  "job": "Composer", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 57, 
+  "state": "GA", 
+  "memberId": "052000568-01", 
+  "job": "Composer", 
+  "encounterList": [
    {
     "date": "2005-09-19", 
     "event": "outpatient_emergency"
@@ -18294,16 +18294,16 @@
   ], 
   "marriage_status": "Married"
  }, 
- "725210000-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 39, 
-  "job": "Administrator", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 39, 
+  "state": "GA", 
+  "memberId": "725210000-01", 
+  "job": "Administrator", 
+  "encounterList": [
    {
     "date": "2005-06-27", 
     "event": "outpatient_medical"
@@ -18495,15 +18495,15 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666987316-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 55, 
-  "job": "Management Consultant", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 55, 
+  "state": "GA", 
+  "memberId": "666987316-01", 
+  "job": "Management Consultant", 
+  "encounterList": [
    {
     "date": "2005-06-10", 
     "event": "outpatient_medical"
@@ -18723,17 +18723,17 @@
   ], 
   "marriage_status": "Widowed"
  }, 
- "666836691-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 62, 
-  "job": "Geographer", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed", 
    "Zostavax"
   ], 
-  "orderedEncounterList": [
+  "age": 62, 
+  "state": "GA", 
+  "memberId": "666836691-01", 
+  "job": "Geographer", 
+  "encounterList": [
    {
     "date": "2005-03-28", 
     "event": "outpatient_medical"
@@ -18981,16 +18981,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "371008251-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 60, 
-  "job": "System Administrator", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 60, 
+  "state": "GA", 
+  "memberId": "371008251-01", 
+  "job": "System Administrator", 
+  "encounterList": [
    {
     "date": "2005-11-30", 
     "event": "outpatient_medical"
@@ -19114,18 +19114,18 @@
   ], 
   "marriage_status": "Single"
  }, 
- "492950000-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 67, 
-  "job": "Police Office", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax", 
    "Tetanus and diphtheria toxoids adsorbed", 
    "Pnu-Imune 23"
   ], 
-  "orderedEncounterList": [
+  "age": 67, 
+  "state": "GA", 
+  "memberId": "492950000-01", 
+  "job": "Police Office", 
+  "encounterList": [
    {
     "date": "2005-06-02", 
     "event": "outpatient_medical"
@@ -19409,16 +19409,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666172130-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 49, 
-  "job": "Guide", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 49, 
+  "state": "GA", 
+  "memberId": "666172130-01", 
+  "job": "Guide", 
+  "encounterList": [
    {
     "date": "2005-06-15", 
     "event": "outpatient_emergency"
@@ -19662,18 +19662,18 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "000266513-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 68, 
-  "job": "Test Developer", 
-  "immunization": [
+ {
+  "immunizations": [
    "Zostavax", 
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed", 
    "Pnu-Imune 23"
   ], 
-  "orderedEncounterList": [
+  "age": 68, 
+  "state": "GA", 
+  "memberId": "000266513-01", 
+  "job": "Test Developer", 
+  "encounterList": [
    {
     "date": "2005-09-19", 
     "event": "outpatient_medical"
@@ -19945,16 +19945,16 @@
   ], 
   "marriage_status": "Legally Separated"
  }, 
- "596006027-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 60, 
-  "job": "Customs Officer", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 60, 
+  "state": "GA", 
+  "memberId": "596006027-01", 
+  "job": "Customs Officer", 
+  "encounterList": [
    {
     "date": "2005-01-19", 
     "event": "outpatient_medical"
@@ -20190,16 +20190,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "000232359-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 52, 
-  "job": "Dog Walker", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 52, 
+  "state": "GA", 
+  "memberId": "000232359-01", 
+  "job": "Dog Walker", 
+  "encounterList": [
    {
     "date": "2005-05-23", 
     "event": "outpatient_medical"
@@ -20487,17 +20487,17 @@
   ], 
   "marriage_status": "Single"
  }, 
- "224590000-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 64, 
-  "job": "Egyptologist", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 64, 
+  "state": "GA", 
+  "memberId": "224590000-01", 
+  "job": "Egyptologist", 
+  "encounterList": [
    {
     "date": "2005-04-19", 
     "event": "outpatient_medical"
@@ -20697,16 +20697,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "000136865-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 50, 
-  "job": "Statistician", 
-  "immunization": [
+ {
+  "immunizations": [
    "Tetanus and diphtheria toxoids adsorbed", 
    "FLUARIX"
   ], 
-  "orderedEncounterList": [
+  "age": 50, 
+  "state": "GA", 
+  "memberId": "000136865-01", 
+  "job": "Statistician", 
+  "encounterList": [
    {
     "date": "2005-07-11", 
     "event": "outpatient_medical"
@@ -20922,16 +20922,16 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666159871-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 43, 
-  "job": "Actuary", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 43, 
+  "state": "GA", 
+  "memberId": "666159871-01", 
+  "job": "Actuary", 
+  "encounterList": [
    {
     "date": "2005-02-14", 
     "event": "outpatient_medical"
@@ -21095,17 +21095,17 @@
   ], 
   "marriage_status": "Single"
  }, 
- "666399414-01": {
-  "state": "GA", 
-  "gender": "male", 
-  "age": 68, 
-  "job": "Press Officer", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Zostavax", 
    "Pnu-Imune 23"
   ], 
-  "orderedEncounterList": [
+  "age": 68, 
+  "state": "GA", 
+  "memberId": "666399414-01", 
+  "job": "Press Officer", 
+  "encounterList": [
    {
     "date": "2005-07-18", 
     "event": "outpatient_medical"
@@ -21361,16 +21361,16 @@
   ], 
   "marriage_status": "Divorced"
  }, 
- "666317375-01": {
-  "state": "GA", 
-  "gender": "female", 
-  "age": 47, 
-  "job": "Jeweler", 
-  "immunization": [
+ {
+  "immunizations": [
    "FLUARIX", 
    "Tetanus and diphtheria toxoids adsorbed"
   ], 
-  "orderedEncounterList": [
+  "age": 47, 
+  "state": "GA", 
+  "memberId": "666317375-01", 
+  "job": "Jeweler", 
+  "encounterList": [
    {
     "date": "2005-01-04", 
     "event": "outpatient_medical"
@@ -21526,4 +21526,4 @@
   ], 
   "marriage_status": "Single"
  }
-}
+]
