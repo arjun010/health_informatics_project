@@ -27,19 +27,20 @@ bars_data=
 ]
 
 function draw_charts_all(){
-	draw_chart(bars_data, '#barlabtest');
-	draw_chart(bars_data, '#bardrugs');
+	draw_chart('#barlabtest');
+	draw_chart('#bardrugs');
+	generate_histogram('#visithistogram');
 }
 
 
-function draw_chart(bars, div_id){
+function draw_chart(div_id){
 
-	d3.json("data/encounters.json", function(error, d) {
+	//d3.json("data/encounters.json", function(error, d) {
 		
 		var dict = [];
 		var data = [];
 		
-		var temp_data = d;
+		var temp_data = filteredEncounterData;
 		var entry_limit=0, bar_label="", label_x = 0;
 		temp_data.forEach(function(d) {
 			if(div_id == '#barlabtest'){
@@ -47,7 +48,7 @@ function draw_chart(bars, div_id){
 				if(d.labTest != "")
 					dict[d.labTest] = (dict[d.labTest] || 0) + 1;}
 			if(div_id == '#bardrugs'){
-				entry_limit=10, bar_label="Drugs Prescribed", label_x = 350;
+				entry_limit=10, bar_label="Drugs Prescribed", label_x = 400;
 				if(d.drugPrescribed != "")
 					dict[d.drugPrescribed] = (dict[d.drugPrescribed] || 0) + 1;}
 		});
@@ -59,8 +60,8 @@ function draw_chart(bars, div_id){
 				data.push({Name: String(key), Value: Number(dict[key])});
 			}
 		}
-		console.log(dict);
-		console.log(data);
+		//console.log(dict);
+		//console.log(data);
 		var margin = {top: 80, right: 20, bottom: 80, left: 50},
 			width = 860 - margin.left - margin.right,
 			height = 400 - margin.top - margin.bottom;
@@ -133,7 +134,7 @@ function draw_chart(bars, div_id){
 		  .call(xAxis)
 		  .selectAll(".tick text")
 		  .call(wrap, x.rangeBand());
-	});
+	//});
 }
 //**************************************************************************************************************************************
 function wrap(text, width) {
