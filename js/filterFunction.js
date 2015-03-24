@@ -187,5 +187,22 @@ function applyFilters(){
 	
 	//BUBBLE CHART FUNCTION CALL HERE
 	//drawBubbleChart(); //use the filteredEncounterData variable - it is global
+	bubbleChart(filteredEncounterData);
 
+}
+
+function filterByCondition(condition){
+	for(var i=0;i<filteredEncounterData.length;i++){
+		var currentCondition = filteredEncounterData[i]['condition'];
+		if(currentCondition==condition){
+			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
+		}
+	}
+	console.log(filteredEncounterDataByCondition);
+	/*for(var i=0;i<filteredEncounterData.length;i++){
+		var currentCondition = filteredEncounterData[i]['condition'];
+		if(currentCondition==condition){
+			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
+		}
+	}*/
 }

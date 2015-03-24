@@ -11,7 +11,9 @@
 	<script src="js/bars.js"></script>
 	<script src="js/bubble_chart.js"></script>
 	<script type="text/javascript">
-		
+	
+	var activeCondition = "";
+
 		var allEncounters = (function() {
         var json = null;
         $.ajax({
@@ -43,9 +45,15 @@
 
     	var filteredEncounterData = [];
     	var filteredChoronologicalVisData = [];
+    	var filteredEncounterDataByCondition = [];
+    	var filteredMemberDataByCondition = [];
 	</script>
 </head>
 <style>
+
+body {
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
 .barz rect {
   fill: skyblue;
   shape-rendering: crispEdges;
@@ -96,186 +104,223 @@
 
 </style>
 <body style="background-color:#F8F8F5;">
-	<div class="col-sm-2">
-		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id="headingOne">
-		      <h4 class="panel-title">
-		        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-		          Age range
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-		      <div class="panel-body">
-		        From: <select onchange="applyFilters()" style="margin-left:10px;margin-right:10px;" id="agerangestart"></select>
-		        To: <select onchange="applyFilters()" style="margin-left:10px;" id="agerangeend"></select>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id="headingTwo">
-		      <h4 class="panel-title">
-		        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-		          Gender
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-		      <div class="panel-body">
-		        <input onchange="applyFilters()" checked="true" type="checkbox" id="genderboth" value="both">Both</input>
-		        <input onchange="applyFilters()" type="checkbox" id="gendermale" value="male">Male</input>
-		        <input onchange="applyFilters()" type="checkbox" id="genderfemale" value="female">Female</input>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id="headingThree">
-		      <h4 class="panel-title">
-		        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-		          Year Range
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-		      <div class="panel-body">
-		        From: <select onchange="applyFilters()" style="margin-left:10px;margin-right:10px;" id="daterangestart"></select>
-		        To: <select onchange="applyFilters()" style="margin-left:10px;" id="daterangeend"></select>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id="headingFour">
-		      <h4 class="panel-title">
-		        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-		          Marriage Status
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-		      <div class="panel-body" id="marriagestatusoptionlist">		        
-		      </div>
-		    </div>
-		  </div>
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id="headingFive">
-		      <h4 class="panel-title">
-		        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-		          Job
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-		      <div class="panel-body" id="joboptionlist">
-		        
-		      </div>
-		    </div>
-		  </div>
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id="headingSix">
-		      <h4 class="panel-title">
-		        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-		          Immunizations
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-		      <div class="panel-body" id="immunizationoptionlist">
-		        
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div>
-	<!-------------------------------------------------------------------------------------------------------------------------------------->
-	
-	<div class="col-sm-8">	
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+				<!-- Collect the nav links, forms, and other content for toggling 
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span
+                </button>>-->
+                <a class="navbar-brand" href="#"><b>FHIR DART</b></a>
+            </div>
 
-		<table style="margin-top:20px;width:100%;">
-			<tr>
-				<td align="center">
-					<p style="font-size:30px;" id="encountercounttext"></p>
-				</td>
-				<td align="center">
-					<p style="font-size:30px;" id="membercounttext"></p>
-				</td>
-			</tr>
-		</table>		
-		<div align="center" id="bubblechart">
-			<img src="bubble_placeholder.jpg" style="border:1px solid black;" onClick="draw_charts_all()"></img>
-		</div>			
-		<table>
-			<tr>
-				<td align="left">
-					<div id="bardrugs"></div>
-				</td>
-				<td align="right">
-					<div id="barlabtest"></div>
-				</td>
-			</tr>			
-			<tr>
-				<td align="left">
-					<div id="visithistogram"></div>
-				</td>
-				<td align="right">
-					<div id="dougnutchart"></div>
-				</td>
-			</tr>
-			<tr>
-				<td align="center">
-					<div id="choronologicalvis"></div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<!-------------------------------------------------------------------------------------------------------------------------------------->
-	
-	<div class="col-sm-2">
-		<div class="panel-group" id="accordionRight" role="tablist" aria-multiselectable="true">
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id="headingRightOne">
-		      <h4 class="panel-title">
-		        <a data-toggle="collapse" data-parent="#accordionRight" href="#collapseRightOne" aria-expanded="true" aria-controls="collapseRightOne">
-		          Item #1
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseRightOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRightOne">
-		      <div class="panel-body">
-		        
-		      </div>
-		    </div>
-		  </div>
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id="headingRightTwo">
-		      <h4 class="panel-title">
-		        <a class="collapsed" data-toggle="collapse" data-parent="#accordionRight" href="#collapseRightTwo" aria-expanded="false" aria-controls="collapseRightTwo">
-		          Item #2
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseRightTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRightTwo">
-		      <div class="panel-body">
-		        
-		      </div>
-		    </div>
-		  </div>
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id="headingRightThree">
-		      <h4 class="panel-title">
-		        <a class="collapsed" data-toggle="collapse" data-parent="#accordionRight" href="#collapseRightThree" aria-expanded="false" aria-controls="collapseRightThree">
-		          Item #3
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseRightThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRightThree">
-		      <div class="panel-body">
-		        
-		      </div>
-		    </div>
-		  </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				<a class="navbar-brand" href="#people">Overview</a>
+				<a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				<a class="navbar-brand" href="#courses">Details</a>
+                <!-- <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#people">People</a>
+                    </li>
+                    <li>
+                        <a href="#">Research</a>
+                    </li> 
+                    <li>
+                        <a href="#">News</a>
+                    </li>
+                </ul> -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+		<div class="col-sm-2">
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOne">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					  Age range
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+				  <div class="panel-body">
+					From: <select onchange="applyFilters()" style="margin-left:10px;margin-right:10px;" id="agerangestart"></select>
+					To: <select onchange="applyFilters()" style="margin-left:10px;" id="agerangeend"></select>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingTwo">
+				  <h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					  Gender
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+				  <div class="panel-body">
+					<input onchange="applyFilters()" checked="true" type="checkbox" id="genderboth" value="both">Both</input>
+					<input onchange="applyFilters()" type="checkbox" id="gendermale" value="male">Male</input>
+					<input onchange="applyFilters()" type="checkbox" id="genderfemale" value="female">Female</input>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThree">
+				  <h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+					  Year Range
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+				  <div class="panel-body">
+					From: <select onchange="applyFilters()" style="margin-left:10px;margin-right:10px;" id="daterangestart"></select>
+					To: <select onchange="applyFilters()" style="margin-left:10px;" id="daterangeend"></select>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingFour">
+				  <h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+					  Marriage Status
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+				  <div class="panel-body" id="marriagestatusoptionlist">		        
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingFive">
+				  <h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+					  Job
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+				  <div class="panel-body" id="joboptionlist">
+					
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingSix">
+				  <h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+					  Immunizations
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+				  <div class="panel-body" id="immunizationoptionlist">
+					
+				  </div>
+				</div>
+			  </div>
+			</div>
 		</div>
-	</div>
+		<!-------------------------------------------------------------------------------------------------------------------------------------->
+		
+		<div class="col-sm-8">	
+
+			<table style="margin-top:20px;width:100%;">
+				<tr>
+					<td align="center">
+						<p style="font-size:30px;" id="encountercounttext"></p>
+					</td>
+					<td align="center">
+						<p style="font-size:30px;" id="membercounttext"></p>
+					</td>
+				</tr>
+			</table>		
+			<div align="center" id="bubblechart">
+				<!--<img src="bubble_placeholder.jpg" style="border:1px solid black;" onClick="draw_charts_all()"></img>-->
+			</div>			
+			<table>
+				<tr>
+					<td align="left">
+						<div id="bardrugs"></div>
+					</td>
+					<td align="right">
+						<div id="barlabtest"></div>
+					</td>
+				</tr>			
+				<tr>
+					<td align="left">
+						<div id="visithistogram"></div>
+					</td>
+					<td align="right">
+						<div id="dougnutchart"></div>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<div id="choronologicalvis"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!-------------------------------------------------------------------------------------------------------------------------------------->
+		
+		<div class="col-sm-2">
+			<div class="panel-group" id="accordionRight" role="tablist" aria-multiselectable="true">
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingRightOne">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordionRight" href="#collapseRightOne" aria-expanded="true" aria-controls="collapseRightOne">
+					  Item #1
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseRightOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRightOne">
+				  <div class="panel-body">
+					
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingRightTwo">
+				  <h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordionRight" href="#collapseRightTwo" aria-expanded="false" aria-controls="collapseRightTwo">
+					  Item #2
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseRightTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRightTwo">
+				  <div class="panel-body">
+					
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingRightThree">
+				  <h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordionRight" href="#collapseRightThree" aria-expanded="false" aria-controls="collapseRightThree">
+					  Item #3
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseRightThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRightThree">
+				  <div class="panel-body">
+					
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+
 </body>
 <script type="text/javascript" src="js/filterFunction.js"></script>
 <script type="text/javascript">

@@ -17,12 +17,13 @@ function bubbleChart (data) {
                 .padding(3);
 
     // generate data with calculated layout values
-    var bubble_nodes = bubble.nodes(processData(json))
+    var bubble_nodes = bubble.nodes(processData(data))
                         .filter(function(d) { return !d.children; }); // filter out the outer bubble
-
+    
+	console.log(bubble_nodes);
     var bubble_vis = bubble_svg.selectAll('g.bubble')
             .data(bubble_nodes)
-        .enter().append('group')
+        .enter().append('g')
             .attr('class', 'bubble')
             .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; });
 
@@ -54,6 +55,7 @@ function bubbleChart (data) {
         };
         var newDataSet = [];
         for (var i = conditions.length - 1; i >= 0; i--) {
+			if(conditions[i] == '') {continue;}
             newDataSet.push({name: conditions[i], size: counts[i]});
         }
         return {children: newDataSet};
