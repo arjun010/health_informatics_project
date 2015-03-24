@@ -174,6 +174,14 @@ function applyFilters(){
 		filteredChronologicalVisData[i]["encounterList"] = filteredEncounterList;
 		filteredChronologicalVisData[i]["encounterCount"] = filteredEncounterList.length;
 	}
+	
+	$("#encountercounttext").text(function() {
+  		return "Encounters covered: "+filteredEncounterData.length;
+	});
+	$("#membercounttext").text(function() {
+  		return "Members covered: "+filteredChronologicalVisData.length;
+	});
+
 	//console.log(filteredChronologicalVisData)
 	//console.log(filteredChronologicalVisData.length)
 	

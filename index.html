@@ -185,14 +185,21 @@
 	<!-------------------------------------------------------------------------------------------------------------------------------------->
 	
 	<div class="col-sm-8">	
-		<table>
+
+		<table style="margin-top:20px;width:100%;">
 			<tr>
 				<td align="center">
-					<div id="bubblechart">
-						<img src="bubble_placeholder.jpg" style="border:1px solid black;" onClick="draw_charts_all()"></img>
-					</div>
+					<p style="font-size:30px;" id="encountercounttext"></p>
+				</td>
+				<td align="center">
+					<p style="font-size:30px;" id="membercounttext"></p>
 				</td>
 			</tr>
+		</table>		
+		<div align="center" id="bubblechart">
+			<img src="bubble_placeholder.jpg" style="border:1px solid black;" onClick="draw_charts_all()"></img>
+		</div>			
+		<table>
 			<tr>
 				<td align="left">
 					<div id="bardrugs"></div>
