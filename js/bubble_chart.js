@@ -3,12 +3,10 @@ function bubbleChart (data) {
     // D3 Bubble Chart 
 
     var diameter = 600;
-    var width = 800;
-    var height = 700;
 
-    var svg = d3.select('#bubblechart').append('svg')
-                    .attr('width', width)
-                    .attr('height', height);
+    var bubble_svg = d3.select('#bubblechart').append('svg')
+                    .attr('width', diameter)
+                    .attr('height', diameter);
 
     var bubble = d3.layout.pack()
                 .size([diameter, diameter])
@@ -19,24 +17,24 @@ function bubbleChart (data) {
                 .padding(3);
 
     // generate data with calculated layout values
-    var nodes = bubble.nodes(processData(data))
+    var bubble_nodes = bubble.nodes(processData(json))
                         .filter(function(d) { return !d.children; }); // filter out the outer bubble
 
-    var vis = svg.selectAll('g.bubble')
-            .data(nodes)
-        .enter().append('g')
+    var bubble_vis = bubble_svg.selectAll('g.bubble')
+            .data(bubble_nodes)
+        .enter().append('group')
             .attr('class', 'bubble')
             .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; });
 
-    vis.append('circle')
+    bubble_vis.append('circle')
             .attr('r', function(d) { return d.r; })
             .style('fill', '#029eca');
             //.attr('class', function(d) { return d.className; });
 
-    vis.append('text')
+    bubble_vis.append('text')
             .attr('text-anchor', 'middle')
             .attr("dy", ".3em")
-            .text(function(d) { return d.name.substring(0, d.r / 3) });
+            .text(function(d) { return d.name });
 
     function processData(data) {
         var conditions = [];
@@ -56,7 +54,6 @@ function bubbleChart (data) {
         };
         var newDataSet = [];
         for (var i = conditions.length - 1; i >= 0; i--) {
-            if (conditions[i] == '') {continue;};
             newDataSet.push({name: conditions[i], size: counts[i]});
         }
         return {children: newDataSet};
