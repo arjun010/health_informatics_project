@@ -187,6 +187,7 @@ function applyFilters(){
 	
 	//BUBBLE CHART FUNCTION CALL HERE
 	//drawBubbleChart(); //use the filteredEncounterData variable - it is global
+	bubbleChart(filteredEncounterData);
 
 }
 
