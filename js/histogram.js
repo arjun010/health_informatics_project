@@ -1,7 +1,7 @@
 
 
 function generate_histogram(div_id){
-
+	d3.select(div_id).selectAll('svg').remove();
 	var num_array = [];
 	filteredChronologicalVisData.forEach(function(d) {
         num_array.push(d["encounterList"].length);

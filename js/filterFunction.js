@@ -181,14 +181,19 @@ function applyFilters(){
 	$("#membercounttext").text(function() {
   		return "Members covered: "+filteredChronologicalVisData.length;
 	});
-
+	
+	if(filteredEncounterData.length == 0){
+		activeCondition = "";
+	}
 	//console.log(filteredChronologicalVisData)
 	//console.log(filteredChronologicalVisData.length)
 	
 	//BUBBLE CHART FUNCTION CALL HERE
 	//drawBubbleChart(); //use the filteredEncounterData variable - it is global
+	draw_charts_all();
 	bubbleChart(filteredEncounterData);
-
+	
+	
 }
 
 function filterByCondition(condition){
@@ -198,7 +203,9 @@ function filterByCondition(condition){
 			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
 		}
 	}
-	console.log(filteredEncounterDataByCondition);
+	$("#selected-bubble").html("<h1>Selected Condition: " + condition + "</h1>");
+	activeCondition = condition;
+	draw_charts_all();
 	/*for(var i=0;i<filteredEncounterData.length;i++){
 		var currentCondition = filteredEncounterData[i]['condition'];
 		if(currentCondition==condition){

@@ -27,43 +27,55 @@ bars_data=
 ]
 
 function draw_charts_all(){
-	draw_chart('#barlabtest');
-	draw_chart('#bardrugs');
-	generate_histogram('#visithistogram');
+	console.log(activeCondition);
+	if(activeCondition!=""){
+		draw_chart('#barlabtest');
+		draw_chart('#bardrugs');
+		//generate_histogram('#visithistogram');
+	}else{
+		d3.select('#barlabtest').selectAll('svg').remove();
+		d3.select('#bardrugs').selectAll('svg').remove();
+		$("#selected-bubble").html("");
+	}
+	
+	
 }
 
 
 function draw_chart(div_id){
 
 	//d3.json("data/encounters.json", function(error, d) {
+		d3.select(div_id).selectAll('svg').remove();
 		
 		var dict = [];
 		var data = [];
 		
-		var temp_data = filteredEncounterData;
+		var temp_data = filteredEncounterDataByCondition;
 		var entry_limit=0, bar_label="", label_x = 0;
 		temp_data.forEach(function(d) {
 			if(div_id == '#barlabtest'){
-				entry_limit=50, bar_label="Lab Test Categories", label_x = 150;
+				entry_limit=50, bar_label="Lab Test Categories", label_x = 120;
 				if(d.labTest != "")
 					dict[d.labTest] = (dict[d.labTest] || 0) + 1;}
 			if(div_id == '#bardrugs'){
-				entry_limit=10, bar_label="Drugs Prescribed", label_x = 400;
+				entry_limit=10, bar_label="Drugs Prescribed", label_x = 160;
 				if(d.drugPrescribed != "")
 					dict[d.drugPrescribed] = (dict[d.drugPrescribed] || 0) + 1;}
 		});
 		
 		max_value=0;
 		for (var key in dict) {
-			if(dict[key] > 50){
+			if(dict[key] > 0){
 				if(max_value < dict[key]) max_value = dict[key];        
 				data.push({Name: String(key), Value: Number(dict[key])});
 			}
 		}
+		
 		//console.log(dict);
+		//console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		//console.log(data);
-		var margin = {top: 80, right: 20, bottom: 80, left: 50},
-			width = 860 - margin.left - margin.right,
+		var margin = {top: 80, right: 0, bottom: 80, left: 50},
+			width = 500 - margin.left - margin.right,
 			height = 400 - margin.top - margin.bottom;
 			
 		var formatPercent = d3.format(".0%");
@@ -84,7 +96,8 @@ function draw_chart(div_id){
 		  .attr('class', 'd3-tip')
 		  .offset([-10, 0])
 		  .html(function(d) {
-			return "<strong>Value:</strong> <span style='color:Gold'>" + d.Value + "</span>";
+			return "<strong>Name:</strong> <span style='color:Gold'>" + d.Name + "</span>" + "<br/>" + 
+				   "<strong>Value:</strong> <span style='color:Gold'>" + d.Value + "</span>";
 		  })
 	  	  	  
 	  x.domain(data.map(function(d) { return d.Name; }));
@@ -118,27 +131,35 @@ function draw_chart(div_id){
 
 	  svg.selectAll(".barz")
 		  .data(data)
-		.enter().append("rect")
+		  .enter().append("rect")
 		  .attr("class", "bar")
 		  .attr("fill", "skyblue")
-		  .attr("x", function(d) { return x(d.Name)+10; })
-		  .attr("width", x.rangeBand()-25)
+		  .attr("x", function(d) { return x(d.Name); })
+		  .attr("width", x.rangeBand())
 		  .attr("y", function(d) { return y(d.Value); })
 		  .attr("height", function(d) { return height - y(d.Value); })
 		  .on('mouseover', tip.show)
 		  .on('mouseout', tip.hide);
-		  
-	  svg.append("g")
+	
+	  /* svg.append("g")
 		  .attr("class", "x axis")
 		  .attr("transform", "translate(0," + height + ")")
 		  .call(xAxis)
-		  .selectAll(".tick text")
+		  .selectAll(".tick_text")
 		  .call(wrap, x.rangeBand());
+		d3.selectAll(".tick_text").remove(); */
+		svg.append("g")
+		.attr("class","x-axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+		d3.selectAll(".x-axis .tick").selectAll("text").remove();
+		
 	//});
 }
 //**************************************************************************************************************************************
 function wrap(text, width) {
-  text.each(function() {
+	console.log("wrap");
+  /* text.each(function() {
     var text = d3.select(this),
         words = text.text().split(/\s+/).reverse(),
         word,
@@ -158,5 +179,6 @@ function wrap(text, width) {
         tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
       }
     }
-  });
+	
+  }); */
 }
