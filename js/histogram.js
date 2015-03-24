@@ -1,9 +1,15 @@
 
 
-function generate_histogram(values){
+function generate_histogram(div_id){
 
-	var num_array = [1,1,1,1,1,1,1,1,2,2,2,2,1,1,4,4,4,4,5,5,5,6,6,7,7,8,8,8,8,8,8,8,8,3,3,3,3,3,3,4,5,6,1,2,3,7,7,7,7,7,4,9,9,9,9,9,9,5,3,2,2,2,3];
-	console.log(arrayMax(num_array));
+	var num_array = [];
+	filteredChronologicalVisData.forEach(function(d) {
+        num_array.push(d["encounterList"].length);
+        //console.log(d.Happiness + " | " + d.Song);
+    });
+	var array_max = arrayMax(num_array);
+	console.log(num_array);
+	console.log(array_max);
 	//var values = d3.range(50).map(d3.random.bates(10));
 
 	var formatCount = d3.format(",.0f");
@@ -13,11 +19,12 @@ function generate_histogram(values){
 		height = 500 - margin.top - margin.bottom;
 
 	var x = d3.scale.linear()
-		.domain([0, 10])
+		.domain([0, array_max])
 		.range([0, width]);
-
+	
+	var ticks_count = (array_max > 50) ? 20 : 10;
 	// Generate a histogram using twenty uniformly-spaced bins.
-	var data = d3.layout.histogram().bins(x.ticks(10))(num_array);
+	var data = d3.layout.histogram().bins(x.ticks(ticks_count))(num_array);
 	console.log(data);
 	var y = d3.scale.linear()
 		.domain([0, d3.max(data, function(d) { return d.y; })])
@@ -27,7 +34,7 @@ function generate_histogram(values){
 		.scale(x)
 		.orient("bottom");
 
-	var svg = d3.select("#vis").append("svg")
+	var svg = d3.select(div_id).append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 	  .append("g")
@@ -37,6 +44,7 @@ function generate_histogram(values){
 		.data(data)
 	  .enter().append("g")
 		.attr("class", "bar")
+		.attr("fill", "skyblue")
 		.attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
 	bar.append("rect")
@@ -50,6 +58,12 @@ function generate_histogram(values){
 		.attr("x", x(data[0].dx) / 2)
 		.attr("text-anchor", "middle")
 		.text(function(d) { return formatCount(d.y); });
+		
+	svg.append("text")
+		  .attr("class", "title")
+		  .attr("x", 350)
+		  .attr("y", 300)
+		  .text("Frequency of Visits");
 
 	svg.append("g")
 		.attr("class", "x axis")
