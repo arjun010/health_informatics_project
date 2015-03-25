@@ -3,9 +3,9 @@ function bubbleChart (data) {
     // D3 Bubble Chart 
 	d3.select('#bubblechart').selectAll('svg').remove();
     var diameter = 600;
-
+    var width = 700;
     var bubble_svg = d3.select('#bubblechart').append('svg')
-                    .attr('width', diameter)
+                    .attr('width', width)
                     .attr('height', diameter);
 
     var bubble = d3.layout.pack()

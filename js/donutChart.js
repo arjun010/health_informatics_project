@@ -49,6 +49,7 @@ var path = svg.selectAll("path")
     	//console.log(d)
     	tip.show(d)
 	})
+     .style("cursor","pointer")
     .on("mouseout",tip.hide);
 
 path.append("text")

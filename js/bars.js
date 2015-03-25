@@ -109,6 +109,7 @@ function draw_chart(div_id){
 		  .attr("width", x.rangeBand())
 		  .attr("y", function(d) { return y(d.Value); })
 		  .attr("height", function(d) { return height - y(d.Value); })
+		  .style("cursor","pointer")
 		  .on('mouseover', tip.show)
 		  .on('mouseout', tip.hide);
 	

@@ -181,6 +181,7 @@ function applyFilters(){
 	d3.select("#bubbleChart").selectAll("svg").remove();
 	d3.select('#barlabtest').selectAll('svg').remove();
 	d3.select('#bardrugs').selectAll('svg').remove();
+	d3.select('#visittypedougnut').selectAll('svg').remove();
 	$("#selected-bubble").html("");
 	$("#visittypeheading").addClass("hide");
 	activeCondition = "";
