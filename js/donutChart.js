@@ -1,7 +1,7 @@
 
 function drawDonutChart(filteredDataMap){
 d3.select("#visittypedougnut").selectAll("svg").remove();
-$(".visittypesheading").remove();
+
 
 var tip = d3.tip()
 		  .attr('class', 'd3-tip')
