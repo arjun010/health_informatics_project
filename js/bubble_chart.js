@@ -1,5 +1,5 @@
 function bubbleChart (data) {
-    console.log(data.length)
+    //console.log(data.length)
     // D3 Bubble Chart 
 	d3.select('#bubblechart').selectAll('svg').remove();
     var diameter = 600;
@@ -26,7 +26,7 @@ function bubbleChart (data) {
         for(var i=0;i<bubble_nodes.length;i++){
             sum += bubble_nodes[i]['value'];
         }        
-        return "Encounters covered: "+sum;
+        return "Encounters: "+sum;
     });
 
     var bubble_vis = bubble_svg.selectAll('g.bubble')
@@ -40,7 +40,7 @@ function bubbleChart (data) {
 		  .offset([-10, 0])
 		  .html(function(d) {
 			return "<span style='color:Gold'>" + d.name + "</span>" + "<br/>" + 
-				   "<span >" + d.value + " occurances</span>";
+				   "<span >" + d.value + " encounters</span>";
 		  })
 	
 	bubble_svg.call(tip);
@@ -53,11 +53,11 @@ function bubbleChart (data) {
                 filterByCondition(d.name); 
             })
 			.on('mouseover', function(d){
-                d3.select(this).style("stroke","gold").style("stroke-width","3").transition().duration(500).attr("r",d.r+3);
+                d3.select(this).style("stroke","gold").style("stroke-width","3").transition().duration(200).attr("r",d.r+3);
                 tip.show(d);
             })
 			.on('mouseout', function(d){
-                d3.select(this).transition().duration(500).attr("r",d.r).style("stroke","").style("stroke-width","");
+                d3.select(this).transition().duration(200).attr("r",d.r).style("stroke","").style("stroke-width","");
                 tip.hide(d);
             });
 			

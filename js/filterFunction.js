@@ -176,14 +176,15 @@ function applyFilters(){
 	}
 	
 	$("#membercounttext").text(function() {
-  		return "Members covered: "+filteredChronologicalVisData.length;
+  		return "Patients: "+filteredChronologicalVisData.length;
 	});
 	d3.select("#bubbleChart").selectAll("svg").remove();
 	d3.select('#barlabtest').selectAll('svg').remove();
 	d3.select('#bardrugs').selectAll('svg').remove();
 	$("#selected-bubble").html("");
+	$("#visittypeheading").addClass("hide");
 	activeCondition = "";
-	console.log(filteredEncounterData.length)
+	//console.log(filteredEncounterData.length)
 	//BUBBLE CHART FUNCTION CALL HERE
 	//drawBubbleChart(); //use the filteredEncounterData variable - it is global
 	bubbleChart(filteredEncounterData);
@@ -197,8 +198,35 @@ function filterByCondition(condition){
 			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
 		}
 	}
+	//console.log(filteredEncounterData)
 	$("#selected-bubble").html("<h1>Selected Condition: <span style='color:#029eca'>" + condition + "</span></h1>");
 	draw_charts_all();
+	
+	var mapForDonut = {};	
+	var coveredVisitTypes = [];
+	for(var i=0;i<filteredEncounterData.length;i++){
+		if(objectExistisInList(filteredEncounterData[i]['visit_type'],coveredVisitTypes)==0){
+			if(filteredEncounterData[i]['condition']==condition){
+				mapForDonut[filteredEncounterData[i]['visit_type']] = 0;
+				coveredVisitTypes.push(filteredEncounterData[i]['visit_type']);
+			}
+		}
+	}
+	//console.log(mapForDonut)
+	var mapLabels = Object.keys(mapForDonut);
+	for(var i=0;i<filteredEncounterData.length;i++){
+		var currentVisitType = filteredEncounterData[i]['visit_type'];
+		if(objectExistisInList(currentVisitType,mapLabels)==1){
+			mapForDonut[currentVisitType]+=1;
+		}
+	}
+	var formattedOutputForDonut = [];
+	
+	for(var i=0;i<mapLabels.length;i++){
+		formattedOutputForDonut.push({"label":mapLabels[i],"value":mapForDonut[mapLabels[i]]});
+	}
+	console.log(mapForDonut)
+	drawDonutChart(mapForDonut);
 	/*for(var i=0;i<filteredEncounterData.length;i++){
 		var currentCondition = filteredEncounterData[i]['condition'];
 		if(currentCondition==condition){

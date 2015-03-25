@@ -9,6 +9,7 @@
 	<script src="js/d3-tip.js"></script>
 	<script src="js/histogram.js"></script>
 	<script src="js/bars.js"></script>
+	<script src="js/donutChart.js"></script>
 	<script src="js/bubble_chart.js"></script>
 	<script type="text/javascript">
 	
@@ -55,7 +56,16 @@ body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+path.slice{
+	stroke-width:2px;
+}
 
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
 
 
 .barz rect {
@@ -263,18 +273,24 @@ cursor:pointer;
 			<div align="center" id="bubblechart">
 				<!--<img src="bubble_placeholder.jpg" style="border:1px solid black;" onClick="draw_charts_all()"></img>-->
 			</div>			
-			<table align="right">
+			<table align="left">
 				<tr>
 					<div align="center" id="selected-bubble"></div>
 				</tr>
 				<tr>
-					<td style="width:550px;">
+					<td style="width:250px;">
 						<div id="bardrugs" style="width: 550px"></div>
 					</td>
-					<td align="left" style="width:550px;">
+					<td align="left" style="width:250px;">
 						<div id="barlabtest" style="width: 550px"></div>
-					</td>
-				</tr>			
+					</td>				
+					<td>
+						<p class="hide" id="visittypeheading" style="margin-left:70px;font-size:13px;font-family:sans-serif;">Visit Types</p>
+						<div align="center" id="visittypedougnut"></div>
+					</td>									
+				</tr>
+			</table>
+			<!--
 				<tr>
 					<td align="left">
 						<div id="visithistogram"></div>
@@ -289,6 +305,7 @@ cursor:pointer;
 					</td>
 				</tr>
 			</table>
+			-->
 		</div>
 		<!--
 		

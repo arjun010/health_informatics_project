@@ -1,5 +1,5 @@
 function draw_charts_all(){
-	console.log(activeCondition);
+	//console.log(activeCondition);
 	if(activeCondition!=""){
 		draw_chart('#barlabtest');
 		draw_chart('#bardrugs');
@@ -84,7 +84,7 @@ function draw_chart(div_id){
 	  svg.append("text")
 		  .attr("class", "title")
 		  .attr("x", 0)
-		  .attr("y", -5)
+		  .attr("y", -3)
 		  .style("font-size","10")
 		  .attr("transform", "rotate(90)")
 		  .text("Count");
