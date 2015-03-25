@@ -1,14 +1,12 @@
-
 function drawDonutChart(filteredDataMap){
 d3.select("#visittypedougnut").selectAll("svg").remove();
-
+$(".visittypesheading").remove();
 
 var tip = d3.tip()
 		  .attr('class', 'd3-tip')
 		  .offset([-10, 0])
 		  .html(function(d) {
-		  	//console.log(d)
-			return "<span style='color:Gold'>" + d.data + "</span>" + "<br/>" + 
+		  	   return "<span style='color:Gold'>" + d.data + "</span>" + "<br/>" + 
 				   "<span >" + d.value + " occurances</span>";
 		  });
 
