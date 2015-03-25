@@ -2,14 +2,23 @@
 
 function generate_histogram(div_id){
 	d3.select(div_id).selectAll('svg').remove();
+	
+	var tip = d3.tip()
+		  .attr('class', 'd3-tip')
+		  .offset([-10, 0])
+		  .html(function(d) {
+			return "<span style='color:Gold'>" + d.name + "</span>" + "<br/>" + 
+				   "<span >" + d.value + " encounters</span>";
+		  })
+
 	var num_array = [];
-	filteredChronologicalVisData.forEach(function(d) {
+	filteredMemberDataByCondition.forEach(function(d) {
         num_array.push(d["encounterList"].length);
         //console.log(d.Happiness + " | " + d.Song);
     });
 	var array_max = arrayMax(num_array);
-	console.log(num_array);
-	console.log(array_max);
+	//console.log(num_array);
+	//console.log(array_max);
 	//var values = d3.range(50).map(d3.random.bates(10));
 
 	var formatCount = d3.format(",.0f");
@@ -25,7 +34,7 @@ function generate_histogram(div_id){
 	var ticks_count = (array_max > 50) ? 20 : 10;
 	// Generate a histogram using twenty uniformly-spaced bins.
 	var data = d3.layout.histogram().bins(x.ticks(ticks_count))(num_array);
-	console.log(data);
+	//console.log(data);
 	var y = d3.scale.linear()
 		.domain([0, d3.max(data, function(d) { return d.y; })])
 		.range([height, 0]);
@@ -44,13 +53,16 @@ function generate_histogram(div_id){
 		.data(data)
 	  .enter().append("g")
 		.attr("class", "bar")
-		.attr("fill", "skyblue")
+		.attr("fill", "#029eca")
+		.style("cursor","pointer")
 		.attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
 	bar.append("rect")
 		.attr("x", 1)
-		.attr("width", x(data[0].dx) - 1)
+		.attr("width", x(data[0].dx) - 1)		
 		.attr("height", function(d) { return height - y(d.y); });
+		//.on("mouseover",tip.show)
+		//.on("mouseout",tip.hide);
 
 	bar.append("text")
 		.attr("dy", ".75em")

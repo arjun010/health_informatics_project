@@ -56,18 +56,6 @@ body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-path.slice{
-	stroke-width:2px;
-}
-
-polyline{
-	opacity: .3;
-	stroke: black;
-	stroke-width: 2px;
-	fill: none;
-}
-
-
 .barz rect {
   fill: #3366CC;
   shape-rendering: crispEdges;  
@@ -147,7 +135,7 @@ cursor:pointer;
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a class="navbar-brand" href="#encounter" style="margin-left:100px" onclick="toggleView(1)"><b>Encounter-level</b></a>
+				<a class="navbar-brand" href="#encounter" style="margin-left:100px;" onclick="toggleView(1)"><b>Encounter-level</b></a>
 				<a class="navbar-brand" href="#patient" style="margin-left:50px" onclick="toggleView(2)"><b>Patient-level</b></a>
                 <!-- <ul class="nav navbar-nav">
                     <li>
@@ -258,16 +246,16 @@ cursor:pointer;
 			</div>
 		</div>
 		
-		<div id="encounter">
+		<div id="encounterLevel">
 			<div class="col-sm-8">	
 
 				<table style="margin-top:20px;width:100%;">
 					<tr>
 						<td align="center">
-							<p style="font-size:30px;" id="encountercounttext"></p>
+							<div id="encountercounttext"></div>
 						</td>
 						<td align="center">
-							<p style="font-size:30px;" id="membercounttext"></p>
+							<div id="membercounttext"></div>
 						</td>
 					</tr>
 				</table>		
@@ -277,6 +265,7 @@ cursor:pointer;
 				<table align="left">
 					<tr>
 						<div align="center" id="selected-bubble"></div>
+						<div align="center" id="patients-in-condition-cohort"></div>
 					</tr>
 					<tr>
 						<td style="width:250px;">
@@ -285,8 +274,7 @@ cursor:pointer;
 						<td align="left" style="width:250px;">
 							<div id="barlabtest" style="width: 550px"></div>
 						</td>				
-						<td>
-							<p class="hide" id="visittypeheading" style="margin-left:70px;margin-top:30px;font-size:13px;font-family:sans-serif;"><b>Visit Types</b></p>
+						<td>							
 							<div align="center" id="visittypedougnut"></div>
 						</td>									
 					</tr>
@@ -310,8 +298,11 @@ cursor:pointer;
 			</div>
 		</div>
 		
-		<div id="patient" style="visibility:hidden;">
-			<img src="bubble_placeholder.jpg" style="border:1px solid black;" onClick="draw_charts_all()"></img>
+		<div id="patientLevel" class="hide">
+			<div class="col-sm-8">	
+				<div id="visithistogram"></div>
+				<!--<img src="bubble_placeholder.jpg" style="border:1px solid black;" onClick="draw_charts_all()"></img>-->
+			</div>
 		</div>
 		<!--
 		
@@ -366,17 +357,16 @@ cursor:pointer;
 <script type="text/javascript" src="js/filterFunction.js"></script>
 <script type="text/javascript">
 	function toggleView(selectedView){
-		
 		if(selectedView==1){
-			document.getElementById('encounter').style.display = "inline";
-			document.getElementById('encounter').style.visibility = "visible";
-			document.getElementById('patient').style.display = "none";
-			document.getElementById('patient').style.visibility = "hidden";
+			$("#encounterLevel").removeClass("hide");
+			$("#encounterLevel").addClass("show");
+			$("#patientLevel").removeClass("show");
+			$("#patientLevel").addClass("hide");
 		}else{
-			document.getElementById('patient').style.display = "inline";
-			document.getElementById('patient').style.visibility = "visible";
-			document.getElementById('encounter').style.display = "none";
-			document.getElementById('encounter').style.visibility = "hidden";	
+			$("#encounterLevel").removeClass("show");
+			$("#encounterLevel").addClass("hide");
+			$("#patientLevel").removeClass("hide");
+			$("#patientLevel").addClass("show");
 		}
 			
 	}

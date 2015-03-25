@@ -94,6 +94,7 @@ function draw_chart(div_id){
 		  .attr("x", label_x)
 		  .attr("y", -16)
 		  .style("font-size","14")
+		  .style("font-family","sans-serif")
 		  .text(bar_label);
 		  
 	  svg.append("g")

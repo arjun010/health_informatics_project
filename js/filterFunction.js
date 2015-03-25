@@ -175,15 +175,16 @@ function applyFilters(){
 		filteredChronologicalVisData[i]["encounterCount"] = filteredEncounterList.length;
 	}
 	
-	$("#membercounttext").text(function() {
-  		return "Patients: "+filteredChronologicalVisData.length;
-	});
+	$("#membercounttext").html("<h1>Patients: <span style='color:#029eca'>" + filteredChronologicalVisData.length + "</span></h1>");
+
 	d3.select("#bubbleChart").selectAll("svg").remove();
 	d3.select('#barlabtest').selectAll('svg').remove();
 	d3.select('#bardrugs').selectAll('svg').remove();
 	d3.select('#visittypedougnut').selectAll('svg').remove();
+	d3.select('#visithistogram').selectAll('svg').remove();
 	$("#selected-bubble").html("");
-	$("#visittypeheading").addClass("hide");
+	$("#patients-in-condition-cohort").html("");	
+	$(".visittypesheading").remove();
 	activeCondition = "";
 	//console.log(filteredEncounterData.length)
 	//BUBBLE CHART FUNCTION CALL HERE
@@ -193,9 +194,12 @@ function applyFilters(){
 }
 
 function filterByCondition(condition){
+
+
+	//bar charts :
+	
 	filteredEncounterDataByCondition = [];
 	filteredMemberDataByCondition = [];
-	//bar charts code:
 	for(var i=0;i<filteredEncounterData.length;i++){
 		var currentCondition = filteredEncounterData[i]['condition'];
 		if(currentCondition==condition){
@@ -206,6 +210,21 @@ function filterByCondition(condition){
 		
 	draw_charts_all();
 	
+	// condition-cohort patient counts:
+	var count = 0;
+	//console.log(filteredChronologicalVisData.length)
+	for(var i=0;i<filteredChronologicalVisData.length;i++){
+		var curPatientEncounterList = filteredChronologicalVisData[i]["encounterList"];
+		for(var j=0;j<curPatientEncounterList.length;j++){
+			if(curPatientEncounterList[j]["complain"]==condition){
+				count += 1;
+				break;
+			}
+		}		
+	}
+	$("#patients-in-condition-cohort").html("<h1>Number of patients: <span style='color:#029eca'>" + count + "</span></h1>");
+	
+
 	//histogram code:
 	var filteredPatientEncounterList = [];
 	for(var i=0;i<filteredChronologicalVisData.length;i++){
@@ -219,14 +238,17 @@ function filterByCondition(condition){
 			}
 		}
 		//console.log(currentEncounterList)
-		var temp = filteredChronologicalVisData[i];
+		//var temp = filteredChronologicalVisData[i];
+		var temp = JSON.parse(JSON.stringify(filteredChronologicalVisData[i]));
 		temp['encounterList'] = filteredPatientEncounterList;
 		temp['encounterCount'] = temp['encounterList'].length;
 		//console.log(temp)
 		filteredMemberDataByCondition.push(temp);
 	}
+	generate_histogram("#visithistogram");
 	//console.log(filteredMemberDataByCondition.length)
 	//console.log(filteredMemberDataByCondition)
+
 
 	// donut chart code:
 	var mapForDonut = {};	

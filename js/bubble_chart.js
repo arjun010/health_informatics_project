@@ -21,13 +21,11 @@ function bubbleChart (data) {
                         .filter(function(d) { return !d.children; }); // filter out the outer bubble
     
 
-    $("#encountercounttext").text(function() {
-        var sum = 0;
-        for(var i=0;i<bubble_nodes.length;i++){
-            sum += bubble_nodes[i]['value'];
-        }        
-        return "Encounters: "+sum;
-    });
+    var sum = 0;
+    for(var i=0;i<bubble_nodes.length;i++){
+        sum += bubble_nodes[i]['value'];
+    }        
+    $("#encountercounttext").html("<h1>Encounters: <span style='color:#029eca'>" + sum + "</span></h1>");
 
     var bubble_vis = bubble_svg.selectAll('g.bubble')
             .data(bubble_nodes)

@@ -1,7 +1,7 @@
 
 function drawDonutChart(filteredDataMap){
 d3.select("#visittypedougnut").selectAll("svg").remove();
-$("#visittypeheading").removeClass("hide");
+$(".visittypesheading").remove();
 
 var tip = d3.tip()
 		  .attr('class', 'd3-tip')
@@ -17,6 +17,7 @@ var width = 400,
     height = 300,
     radius = Math.min(width, height) / 2;
 
+
 var color = d3.scale.category20();
 
 var pie = d3.layout.pie()
@@ -26,6 +27,13 @@ var pie = d3.layout.pie()
 var arc = d3.svg.arc()
     .innerRadius(radius - 100)
     .outerRadius(radius - 30);
+
+d3.select("#visittypedougnut").append("text")
+       .attr("class","visittypesheading")
+       .style("margin-right","120")
+       .style("font-family","sans-serif")
+       .style("font-size","14")
+       .text("Visit Types");
 
 var svg = d3.select("#visittypedougnut").append("svg")
     .attr("width", width)
@@ -67,7 +75,7 @@ path.append("text")
 				else
 					return "translate(" + (20+(x/h * Math.min(width,height)/2)) +  ',' + ((y/h)) +  ")"; 
     })
-    .attr("style","font-size:12px;font-family:sans-serif;")    
+    .attr("style","font-size:10px;font-family:sans-serif;")    
     .attr("text-anchor", function(d) {
         return (d.endAngle + d.startAngle)/2 > Math.PI ? "end" : "start"; })
     .text(function(d) { return d.data; });
