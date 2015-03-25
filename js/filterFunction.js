@@ -192,16 +192,42 @@ function applyFilters(){
 }
 
 function filterByCondition(condition){
+	filteredEncounterDataByCondition = [];
+	filteredMemberDataByCondition = [];
+	//bar charts code:
 	for(var i=0;i<filteredEncounterData.length;i++){
 		var currentCondition = filteredEncounterData[i]['condition'];
 		if(currentCondition==condition){
 			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
 		}
 	}
-	//console.log(filteredEncounterData)
 	$("#selected-bubble").html("<h1>Selected Condition: <span style='color:#029eca'>" + condition + "</span></h1>");
+		
 	draw_charts_all();
 	
+	//histogram code:
+	var filteredPatientEncounterList = [];
+	for(var i=0;i<filteredChronologicalVisData.length;i++){
+		filteredPatientEncounterList = [];
+		var currentEncounterList = filteredChronologicalVisData[i]['encounterList'];
+		for(var j=0; j<currentEncounterList.length; j++){
+			if(currentEncounterList[j]['complain']==condition){
+				//console.log("1:"+currentEncounterList[j]['complain'])
+				//console.log(condition)
+				filteredPatientEncounterList.push(currentEncounterList[j])
+			}
+		}
+		//console.log(currentEncounterList)
+		var temp = filteredChronologicalVisData[i];
+		temp['encounterList'] = filteredPatientEncounterList;
+		temp['encounterCount'] = temp['encounterList'].length;
+		//console.log(temp)
+		filteredMemberDataByCondition.push(temp);
+	}
+	//console.log(filteredMemberDataByCondition.length)
+	//console.log(filteredMemberDataByCondition)
+
+	// donut chart code:
 	var mapForDonut = {};	
 	var coveredVisitTypes = [];
 	for(var i=0;i<filteredEncounterData.length;i++){
@@ -225,12 +251,7 @@ function filterByCondition(condition){
 	for(var i=0;i<mapLabels.length;i++){
 		formattedOutputForDonut.push({"label":mapLabels[i],"value":mapForDonut[mapLabels[i]]});
 	}
-	console.log(mapForDonut)
+	//console.log(mapForDonut)
 	drawDonutChart(mapForDonut);
-	/*for(var i=0;i<filteredEncounterData.length;i++){
-		var currentCondition = filteredEncounterData[i]['condition'];
-		if(currentCondition==condition){
-			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
-		}
-	}*/
+	
 }
