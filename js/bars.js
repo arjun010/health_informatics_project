@@ -1,31 +1,3 @@
-bars_data=
-[
-  {
-    "Name":"Meddcw1",
-    "Value":"34"
-  },
-  {
-    "Name":"Med54ter2",
-    "Value":"65"
-  },
-  {
-    "Name":"Med343444",
-    "Value":"88"
-  },
-  {
-    "Name":"Med 453",
-    "Value":"14"
-  }, 
-  {
-    "Name":"Med 553",
-    "Value":"67"
-  },
-  {
-    "Name":"Med 234",
-    "Value":"98"
-  }
-]
-
 function draw_charts_all(){
 	console.log(activeCondition);
 	if(activeCondition!=""){
@@ -71,9 +43,6 @@ function draw_chart(div_id){
 			}
 		}
 		
-		//console.log(dict);
-		//console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		//console.log(data);
 		var margin = {top: 80, right: 0, bottom: 80, left: 50},
 			width = 500 - margin.left - margin.right,
 			height = 400 - margin.top - margin.bottom;
@@ -101,7 +70,6 @@ function draw_chart(div_id){
 		  })
 	  	  	  
 	  x.domain(data.map(function(d) { return d.Name; }));
-	  //y.domain([0, d3.max(data, function(d) { return d.Value; })]);
 	  y.domain([0, max_value]);
 	  
 	  
@@ -115,14 +83,17 @@ function draw_chart(div_id){
 	  
 	  svg.append("text")
 		  .attr("class", "title")
-		  .attr("x", -50)
-		  .attr("y", -16)
+		  .attr("x", 0)
+		  .attr("y", -5)
+		  .style("font-size","10")
+		  .attr("transform", "rotate(90)")
 		  .text("Count");
 		  
 	  svg.append("text")
 		  .attr("class", "title")
 		  .attr("x", label_x)
 		  .attr("y", -16)
+		  .style("font-size","14")
 		  .text(bar_label);
 		  
 	  svg.append("g")
@@ -133,7 +104,7 @@ function draw_chart(div_id){
 		  .data(data)
 		  .enter().append("rect")
 		  .attr("class", "bar")
-		  .attr("fill", "skyblue")
+		  .attr("fill", "#029eca")
 		  .attr("x", function(d) { return x(d.Name); })
 		  .attr("width", x.rangeBand())
 		  .attr("y", function(d) { return y(d.Value); })

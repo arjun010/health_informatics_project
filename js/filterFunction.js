@@ -175,25 +175,19 @@ function applyFilters(){
 		filteredChronologicalVisData[i]["encounterCount"] = filteredEncounterList.length;
 	}
 	
-	$("#encountercounttext").text(function() {
-  		return "Encounters covered: "+filteredEncounterData.length;
-	});
 	$("#membercounttext").text(function() {
   		return "Members covered: "+filteredChronologicalVisData.length;
 	});
-	
-	if(filteredEncounterData.length == 0){
-		activeCondition = "";
-	}
-	//console.log(filteredChronologicalVisData)
-	//console.log(filteredChronologicalVisData.length)
-	
+	d3.select("#bubbleChart").selectAll("svg").remove();
+	d3.select('#barlabtest').selectAll('svg').remove();
+	d3.select('#bardrugs').selectAll('svg').remove();
+	$("#selected-bubble").html("");
+	activeCondition = "";
+	console.log(filteredEncounterData.length)
 	//BUBBLE CHART FUNCTION CALL HERE
 	//drawBubbleChart(); //use the filteredEncounterData variable - it is global
-	draw_charts_all();
 	bubbleChart(filteredEncounterData);
-	
-	
+	//draw_charts_all();	
 }
 
 function filterByCondition(condition){
@@ -203,8 +197,7 @@ function filterByCondition(condition){
 			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
 		}
 	}
-	$("#selected-bubble").html("<h1>Selected Condition: " + condition + "</h1>");
-	activeCondition = condition;
+	$("#selected-bubble").html("<h1>Selected Condition: <span style='color:#029eca'>" + condition + "</span></h1>");
 	draw_charts_all();
 	/*for(var i=0;i<filteredEncounterData.length;i++){
 		var currentCondition = filteredEncounterData[i]['condition'];

@@ -1,5 +1,5 @@
 function bubbleChart (data) {
-
+    console.log(data.length)
     // D3 Bubble Chart 
 	d3.select('#bubblechart').selectAll('svg').remove();
     var diameter = 600;
@@ -14,25 +14,33 @@ function bubbleChart (data) {
                 .sort(function(a, b) {
                     return -(a.value - b.value);
                 })
-                .padding(3);
+                .padding(10);
 
     // generate data with calculated layout values
     var bubble_nodes = bubble.nodes(processData(data))
                         .filter(function(d) { return !d.children; }); // filter out the outer bubble
     
-	//console.log(bubble_nodes);
+
+    $("#encountercounttext").text(function() {
+        var sum = 0;
+        for(var i=0;i<bubble_nodes.length;i++){
+            sum += bubble_nodes[i]['value'];
+        }        
+        return "Encounters covered: "+sum;
+    });
+
     var bubble_vis = bubble_svg.selectAll('g.bubble')
             .data(bubble_nodes)
         .enter().append('g')
             .attr('class', 'bubble')
             .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; });
-	console.log(bubble_nodes);
+	//console.log(bubble_nodes);
 	var tip = d3.tip()
 		  .attr('class', 'd3-tip')
 		  .offset([-10, 0])
 		  .html(function(d) {
-			return "<strong>Name:</strong> <span style='color:Gold'>" + d.name + "</span>" + "<br/>" + 
-				   "<strong>Value:</strong> <span style='color:Gold'>" + d.value + "</span>";
+			return "<span style='color:Gold'>" + d.name + "</span>" + "<br/>" + 
+				   "<span >" + d.value + " occurances</span>";
 		  })
 	
 	bubble_svg.call(tip);
@@ -40,21 +48,25 @@ function bubbleChart (data) {
     bubble_vis.append('circle')
             .attr('r', function(d) { return d.r; })
             .style('fill', '#029eca')
-			.on("click", function(d){ console.log(filteredEncounterDataByCondition);console.log(filteredEncounterData); filterByCondition(d.name); } )
-			.on('mouseover', tip.show)
-			.on('mouseout', tip.hide);
-			/* .on("mouseover",function(d){
-				d3.select(this).transition().duration(1000).attr("r",d.r+5).style("stroke","gold").style("stroke-width","3");
-			})
-			.on("mouseout",function(d){
-				d3.select(this).attr('r', function(d) { return d.r; }).style("stroke","").style("stroke-width","0");
-			}); */
-            //.attr('class', function(d) { return d.className; });
+			.on("click", function(d){
+                activeCondition = d.name;
+                filterByCondition(d.name); 
+            })
+			.on('mouseover', function(d){
+                d3.select(this).style("stroke","gold").style("stroke-width","3").transition().duration(500).attr("r",d.r+3);
+                tip.show(d);
+            })
+			.on('mouseout', function(d){
+                d3.select(this).transition().duration(500).attr("r",d.r).style("stroke","").style("stroke-width","");
+                tip.hide(d);
+            });
+			
 
     bubble_vis.append('text')
             .attr('text-anchor', 'middle')
             .attr("dy", ".3em")
-            //.text(function(d) { return d.name })
+            .style("font-size","11")
+            .style("font-family","sans-serif")
 			.text(function(d) { if(d.r >= 25) return d.name.substring(0, d.r / 3.2); });
 
     function processData(data) {
