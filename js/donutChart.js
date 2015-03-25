@@ -2,7 +2,7 @@
 function drawDonutChart(filteredDataMap){
 d3.select("#visittypedougnut").selectAll("svg").remove();
 $("#visittypeheading").removeClass("hide");
-//console.log(filteredDataMap)
+
 var tip = d3.tip()
 		  .attr('class', 'd3-tip')
 		  .offset([-10, 0])
@@ -25,7 +25,7 @@ var pie = d3.layout.pie()
 
 var arc = d3.svg.arc()
     .innerRadius(radius - 100)
-    .outerRadius(radius - 50);
+    .outerRadius(radius - 30);
 
 var svg = d3.select("#visittypedougnut").append("svg")
     .attr("width", width)
@@ -59,14 +59,17 @@ path.append("text")
             y = c[1],
             // pythagorean theorem for hypotenuse
             h = Math.sqrt(x*x + y*y);
-        return "translate(" + (20+(x/h * Math.min(width,height)/2)) +  ',' +
-           ((y/h)) +  ")"; 
+			if(x<0 && y<0)
+				return "translate(-15.965855847912636,-100.935583433283998)"; 
+			else
+				if(x>0 && y<0)
+					return "translate(-15.965855847912636,-100.935583433283998)"; 
+				else
+					return "translate(" + (20+(x/h * Math.min(width,height)/2)) +  ',' + ((y/h)) +  ")"; 
     })
-    .attr("style","font-size:10px;font-family:sans-serif;")    
+    .attr("style","font-size:12px;font-family:sans-serif;")    
     .attr("text-anchor", function(d) {
-        return (d.endAngle + d.startAngle)/2 > Math.PI ?
-            "end" : "start";
-    })
+        return (d.endAngle + d.startAngle)/2 > Math.PI ? "end" : "start"; })
     .text(function(d) { return d.data; });
 
 }
