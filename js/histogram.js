@@ -13,7 +13,8 @@ function generate_histogram(div_id){
 
 	var num_array = [];
 	filteredMemberDataByCondition.forEach(function(d) {
-        num_array.push(d["encounterList"].length);
+		if(d["encounterList"].length>0)
+			num_array.push(d["encounterList"].length);
         //console.log(d.Happiness + " | " + d.Song);
     });
 	var array_max = arrayMax(num_array);
@@ -66,10 +67,11 @@ function generate_histogram(div_id){
 
 	bar.append("text")
 		.attr("dy", ".75em")
-		.attr("y", 6)
+		.attr("fill", "#029eca")
+		.attr("y", -20)
 		.attr("x", x(data[0].dx) / 2)
 		.attr("text-anchor", "middle")
-		.text(function(d) { return formatCount(d.y); });
+		.text(function(d) { if(d.y>0)return formatCount(d.y); });
 		
 	svg.append("text")
 		  .attr("class", "title")
