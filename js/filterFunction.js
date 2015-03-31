@@ -197,7 +197,6 @@ function filterByCondition(condition){
 
 
 	//bar charts :
-	
 	filteredEncounterDataByCondition = [];
 	filteredMemberDataByCondition = [];
 	for(var i=0;i<filteredEncounterData.length;i++){
@@ -206,7 +205,7 @@ function filterByCondition(condition){
 			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
 		}
 	}
-	$("#selected-bubble").html("<h3>Selected Condition: <span style='color:#029eca'>" + condition + "</span></h3>");
+	$(".selected-bubble").html("<h3>Selected Condition: <span style='color:#029eca'>" + condition + "</span></h3>");
 	var labtestarray = [{"values":[]}];
 	var allLabTestNames = [];
 	var drugPrescribedArray = [{"values":[]}];
@@ -280,7 +279,7 @@ function filterByCondition(condition){
 			}
 		}		
 	}
-	$("#patients-in-condition-cohort").html("<h3>Number of patients: <span style='color:#029eca'>" + count + "</span></h3>");
+	$(".patients-in-condition-cohort").html("<h3>Number of patients: <span style='color:#029eca'>" + count + "</span></h3>");
 	
 
 	//histogram code:
@@ -311,18 +310,18 @@ function filterByCondition(condition){
 	// donut chart code:
 	var mapForDonut = {};	
 	var coveredVisitTypes = [];
-	for(var i=0;i<filteredEncounterData.length;i++){
-		if(objectExistisInList(filteredEncounterData[i]['visit_type'],coveredVisitTypes)==0){
-			if(filteredEncounterData[i]['condition']==condition){
-				mapForDonut[filteredEncounterData[i]['visit_type']] = 0;
-				coveredVisitTypes.push(filteredEncounterData[i]['visit_type']);
+	for(var i=0;i<filteredEncounterDataByCondition.length;i++){
+		if(objectExistisInList(filteredEncounterDataByCondition[i]['visit_type'],coveredVisitTypes)==0){
+			if(filteredEncounterDataByCondition[i]['condition']==condition){
+				mapForDonut[filteredEncounterDataByCondition[i]['visit_type']] = 0;
+				coveredVisitTypes.push(filteredEncounterDataByCondition[i]['visit_type']);
 			}
 		}
 	}
 	//console.log(mapForDonut)
 	var mapLabels = Object.keys(mapForDonut);
-	for(var i=0;i<filteredEncounterData.length;i++){
-		var currentVisitType = filteredEncounterData[i]['visit_type'];
+	for(var i=0;i<filteredEncounterDataByCondition.length;i++){
+		var currentVisitType = filteredEncounterDataByCondition[i]['visit_type'];
 		if(objectExistisInList(currentVisitType,mapLabels)==1){
 			mapForDonut[currentVisitType]+=1;
 		}
@@ -336,4 +335,74 @@ function filterByCondition(condition){
 	//drawDonutChart(mapForDonut);
 	drawVisitTypeDonut(clone(formattedOutputForDonut));
 	
+
+	//provider lab counts
+	var allProviders = [];
+	var formattedProviderLabCountMap = [{"values":[]}];
+	for(var i=0;i<filteredEncounterDataByCondition.length;i++){
+		if(objectExistisInList(filteredEncounterDataByCondition[i]["providerId"],allProviders)!=1){
+			allProviders.push(filteredEncounterDataByCondition[i]["providerId"]);
+		}
+	}
+	$("#provider1").append("<option></option>");
+	$("#provider2").append("<option></option>");
+	for(var i=0;i<allProviders.length;i++){
+		$("#provider1").append("<option value="+allProviders[i]+">"+allProviders[i]+"</option>");
+		$("#provider2").append("<option value="+allProviders[i]+">"+allProviders[i]+"</option>");
+	}
+
+	var providerLabCountMap = {};
+	for(var i=0;i<allProviders.length;i++){
+		providerLabCountMap[allProviders[i]] = 0;
+	}
+	for(var i=0;i<filteredEncounterDataByCondition.length;i++){
+		if(filteredEncounterDataByCondition[i]["labTest"]!=""){
+			providerLabCountMap[filteredEncounterDataByCondition[i]["providerId"]]+=1;
+		}
+	}
+
+	for(var i=0;i<allProviders.length;i++){
+		if(providerLabCountMap[allProviders[i]]!=0){
+			formattedProviderLabCountMap[0]["values"].push({"label":allProviders[i],"value":providerLabCountMap[allProviders[i]]});
+		}
+	}
+	drawProviderLabTestCountMap(clone(formattedProviderLabCountMap))
+
+	// provider consult counts
+	var formattedProviderConsultCountMap = [{"values":[]}];
+	var providerConsultCountMap = {};
+	for(var i=0;i<allProviders.length;i++){
+		providerConsultCountMap[allProviders[i]] = 0;
+	}
+	for(var i=0;i<filteredEncounterDataByCondition.length;i++){
+		if(filteredEncounterDataByCondition[i]["consultOrdered"]!=""){
+			providerConsultCountMap[filteredEncounterDataByCondition[i]["providerId"]]+=1;
+		}
+	}
+	for(var i=0;i<allProviders.length;i++){
+		if(providerConsultCountMap[allProviders[i]]!=0){
+			formattedProviderConsultCountMap[0]["values"].push({"label":allProviders[i],"value":providerConsultCountMap[allProviders[i]]});
+		}
+	}
+	drawProviderConsultCountMap(clone(formattedProviderConsultCountMap))
+
+
+	//provider medication counts
+	var formattedProviderMedicationCountMap = [{"values":[]}];
+	var providerMedicationCountMap = {};
+	for(var i=0;i<allProviders.length;i++){
+		providerMedicationCountMap[allProviders[i]] = 0;
+	}
+	for(var i=0;i<filteredEncounterDataByCondition.length;i++){
+		if(filteredEncounterDataByCondition[i]["drugPrescribed"]!=""){
+			providerMedicationCountMap[filteredEncounterDataByCondition[i]["providerId"]]+=1;
+		}
+	}
+	for(var i=0;i<allProviders.length;i++){
+		if(providerMedicationCountMap[allProviders[i]]!=0){
+			formattedProviderMedicationCountMap[0]["values"].push({"label":allProviders[i],"value":providerMedicationCountMap[allProviders[i]]});
+		}
+	}
+	drawProviderMedicationCountMap(clone(formattedProviderMedicationCountMap))
+
 }

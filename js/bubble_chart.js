@@ -63,9 +63,10 @@ function bubbleChart (data) {
     bubble_vis.append('text')
             .attr('text-anchor', 'middle')
             .attr("dy", ".3em")
-            .style("font-size","11")
+            .style("font-size","12")
             .style("font-family","sans-serif")
-			.text(function(d) { if(d.r >= 25) return d.name.substring(0, d.r / 3.2); });
+            .style("fill","white")
+            .text(function(d) { if(d.r >= 25) return d.name.substring(0, d.r / 3.2); });
 
     function processData(data) {
         var conditions = [];

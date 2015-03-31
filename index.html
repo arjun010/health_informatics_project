@@ -10,11 +10,11 @@
 	<script src="js/d3-tip.js"></script>
 	<script src="js/histogram.js"></script>
 	<script src="js/encounter_subcharts.js"></script>
+	<script src="js/provider_subcharts.js"></script>
 	<script src="js/bars.js"></script>
 	<script src="js/donutChart.js"></script>
 	<script src="js/bubble_chart.js"></script>
 	<script type="text/javascript">
-	
 	var activeCondition = "";
 
 		var allEncounters = (function() {
@@ -129,12 +129,13 @@ cursor:pointer;
             <div class="navbar-header">
 				<a class="navbar-brand" href="#" style="color:#C8C8C8;margin-left:80px;"><b>FHIR DART</b></a>
             </div>
-
+            <!--
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a class="navbar-brand" href="#encounter" style="margin-left:100px;" onclick="toggleView(1)"><b>Encounter-level</b></a>
-				<a class="navbar-brand" href="#patient" style="margin-left:50px" onclick="toggleView(2)"><b>Patient-level</b></a>               
-            </div>
-            
+				<a class="navbar-brand" href="#" style="margin-left:100px;" onclick="toggleView(1)"><b>Encounter-level</b></a>
+				<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(2)"><b>Patient-level</b></a>
+				<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(3)"><b>Provider-level</b></a>
+			</div>
+            -->
     </nav>
 
 		<div class="col-sm-2">
@@ -232,64 +233,104 @@ cursor:pointer;
 		<div id="encounterLevel">
 			<div class="col-sm-8">	
 
-				<!--<table style="margin-top:20px;width:100%;">
-					<tr>
-						<td align="center">
-							<div id="encountercounttext"></div>
-						</td>
-						<td align="center">
-							<div id="membercounttext"></div>
-						</td>
-					</tr>
-				</table>		-->
 				<div style="height:10px">
 					<div id="encountercounttext" style="float:left;"></div>
 					<div id="membercounttext" style="float:right;"></div>
 				</div>
 
-				<div style="height:50%;margin-left:35%" id="bubblechart"></div>			
+				<div style="height:55%;margin-left:35%" id="bubblechart"></div>			
 
 				<div style="height:10%;">
-					<div id="selected-bubble" style="float:left;"></div>
-					<div id="patients-in-condition-cohort" style="float:right;"></div>					
+					<div class="selected-bubble" style="float:left;"></div>
+					<div class="patients-in-condition-cohort" style="float:right;"></div>					
 				</div>
-
-				<div id="subcharts" style="height:30%">					
+				<!--<nav class="navbar navbar-default">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				  		<h2>Encounter-Level</h2>
+				    </div>
+				  </div>
+				</nav>-->
+				<hr/>
+				<h2> Patient-level </h2>
+				<hr/>
+				<div id="subcharts-encounter" style="height:30%">		
 					<div id="drugbarchart" style="float:left;width:33%">
+						<h4 align="center">Drugs ordered count</h4>			
 						<svg></svg>			
 					</div>
 					<div id="labtestbarchart" style="float:left;width:33%">
+						<h4 align="center">Lab tests count</h4>
 						<svg></svg>		
 					</div>
 					<div id="visitypedonutchart"style="float:right;width:33%">
+						<h4 align="center">Visit types distribution</h4>
 						<svg></svg>	
 					</div>
 				</div>
-				<!--<table align="left">
-					<tr>
-						<div align="center" id="selected-bubble"></div>
-						<div align="center" id="patients-in-condition-cohort"></div>
-					</tr>
-					<tr>
-						<td style="width:250px;">
-							<div id="bardrugs" style="width: 550px"></div>
-						</td>
-						<td align="left" style="width:250px;">
-							<div id="barlabtest" style="width: 550px"></div>
-						</td>				
-						<td>							
-							<div align="center" id="visittypedougnut"></div>
-						</td>									
-					</tr>
-				</table>-->
-			</div>
+				
+				<!--<nav class="navbar navbar-default">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				  		<h2>Provider-Level</h2>
+				    </div>
+				  </div>
+				</nav>-->
+				<hr/>
+				<h2> Provider-level </h2>
+				<hr/>
+				<div id="subcharts-provider" style="height:30%">					
+					<div id="providertotallabtestbar" style="float:left;width:33%;">
+						<svg></svg>
+					</div>
+					<div id="providerconsultationbar" style="float:left;width:33%">
+						<svg></svg>
+					</div>
+					<div id="providertotalmedicationbar" style="float:left;width:33%">
+						<svg></svg>
+					</div>
+					<div style="float:left;width:33%;">
+						<h4 align="center">Lab test distribution</h4>
+						<h4 align="center">Provider selected: <span id="providerlabdetailsname"></span></h4>
+					</div>
+					<div style="float:left;width:33%">
+						<h4 align="center">Requested consultations distribution</h4>
+						<h4 align="center">Provider selected: <span id="providerconsultationdetailsname"></span></h4>
+					</div>
+					<div style="float:left;width:33%">
+						<h4 align="center">Drugs ordered distribution</h4>
+						<h4 align="center">Provider selected: <span id="providermedicationdetailsname"></span></h4>
+					</div>
+
+					<div id="providerlabdetailsdonut" style="float:left;width:33%;">
+						<svg></svg>
+					</div>
+					<div id="providerconsultationdetailsdonut" style="float:left;width:33%">
+						<svg></svg>
+					</div>
+					<div id="providermedicationdetailsdonut" style="float:left;width:33%">
+						<svg></svg>
+					</div>
+					<h3>Compare providers(accumulated values across all encounters)</h3>
+					<div id="providercompare">
+					<select id="provider1"></select><select id="provider2"></select><button onclick="compareProviders()">Compare Providers</button>
+						<div id="providerencountercompare" style="float:left;width:33%;">
+							<svg></svg>
+						</div>
+						<div id="" style="float:left;width:33%">
+							<svg></svg>
+						</div>
+						<div id="" style="float:left;width:33%">
+							<svg></svg>
+						</div>
+					</div>
+
+				</div>	
+
+				
 		</div>
-		
-		<div id="patientLevel" class="hide">
-			<div class="col-sm-8">	
-				<div id="visithistogram"></div>				
-			</div>
-		</div>		
+		</div>
+	
 </body>
 <script type="text/javascript" src="js/filterFunction.js"></script>
 <script type="text/javascript">
@@ -297,13 +338,31 @@ cursor:pointer;
 		if(selectedView==1){
 			$("#encounterLevel").removeClass("hide");
 			$("#encounterLevel").addClass("show");
+			
 			$("#patientLevel").removeClass("show");
 			$("#patientLevel").addClass("hide");
-		}else{
+
+			$("#providerlevel").removeClass("show");
+			$("#providerlevel").addClass("hide");			
+		}else if(selectedView==2){
 			$("#encounterLevel").removeClass("show");
 			$("#encounterLevel").addClass("hide");
+
 			$("#patientLevel").removeClass("hide");
 			$("#patientLevel").addClass("show");
+
+			$("#providerlevel").removeClass("show");
+			$("#providerlevel").addClass("hide");			
+		}else if(selectedView==3){
+			$("#encounterLevel").removeClass("show");
+			$("#encounterLevel").addClass("hide");
+
+			$("#patientLevel").removeClass("show");
+			$("#patientLevel").addClass("hide");			
+
+			$("#providerlevel").removeClass("hide");
+			$("#providerlevel").addClass("show");		
+
 		}
 			
 	}
