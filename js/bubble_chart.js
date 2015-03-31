@@ -2,14 +2,14 @@ function bubbleChart (data) {
     //console.log(data.length)
     // D3 Bubble Chart 
 	d3.select('#bubblechart').selectAll('svg').remove();
-    var diameter = 600;
-    var width = 700;
+    var diameter = 500;
+    var width = 200;
     var bubble_svg = d3.select('#bubblechart').append('svg')
                     .attr('width', width)
                     .attr('height', diameter);
 
     var bubble = d3.layout.pack()
-                .size([diameter, diameter])
+                .size([diameter, 500])
                 .value(function(d) {return d.size;})
                 .sort(function(a, b) {
                     return -(a.value - b.value);

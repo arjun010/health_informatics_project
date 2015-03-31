@@ -206,10 +206,68 @@ function filterByCondition(condition){
 			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
 		}
 	}
-	$("#selected-bubble").html("<h1>Selected Condition: <span style='color:#029eca'>" + condition + "</span></h1>");
-		
-	draw_charts_all();
+	$("#selected-bubble").html("<h3>Selected Condition: <span style='color:#029eca'>" + condition + "</span></h3>");
+	var labtestarray = [{"values":[]}];
+	var allLabTestNames = [];
+	var drugPrescribedArray = [{"values":[]}];
+	var allDrugNames = [];
+	for(var i=0;i<filteredEncounterDataByCondition.length;i++){
+		if(filteredEncounterDataByCondition[i]["labTest"]!=""){
+			//console.log(filteredEncounterDataByCondition[i])
+			try {
+				//console.log(allLabTestNames)
+			    if(objectExistisInList(filteredEncounterDataByCondition[i]["labTest"],allLabTestNames)!=1){
+					allLabTestNames.push(filteredEncounterDataByCondition[i]["labTest"]);
+				}
+			}
+			catch(err) {
+			    console.log(err.message);
+			}			
+		}
+		if(filteredEncounterDataByCondition[i]["drugPrescribed"]!=""){
+			//console.log(filteredEncounterDataByCondition[i])
+			try {
+				//console.log(allLabTestNames)
+			    if(objectExistisInList(filteredEncounterDataByCondition[i]["drugPrescribed"],allDrugNames)!=1){
+					allDrugNames.push(filteredEncounterDataByCondition[i]["drugPrescribed"]);
+				}
+			}
+			catch(err) {
+			    console.log(err.message);
+			}			
+		}
+	}
+	var labTestCountMap = {};
+	for(var i =0 ;i<allLabTestNames.length;i++){
+		labTestCountMap[allLabTestNames[i]] = 0;
+	}
+	var drugCountMap = {};
+	for(var i =0 ;i<allDrugNames.length;i++){
+		drugCountMap[allDrugNames[i]] = 0;
+	}
+
+	for(var i=0;i<filteredEncounterDataByCondition.length;i++){
+		try {
+			labTestCountMap[filteredEncounterDataByCondition[i]["labTest"]]+=1;
+			drugCountMap[filteredEncounterDataByCondition[i]["drugPrescribed"]]+=1;
+		}
+		catch(err) {
+		    console.log(err.message);
+		}		
+	}
+
+	for(var i=0;i<allLabTestNames.length;i++){
+		labtestarray[0]["values"].push({"label":allLabTestNames[i],"value":labTestCountMap[allLabTestNames[i]]});
+	}
+	for(var i=0;i<allDrugNames.length;i++){
+		drugPrescribedArray[0]["values"].push({"label":allDrugNames[i],"value":drugCountMap[allDrugNames[i]]});
+	}
+	//console.log(labtestarray)
+	//draw_charts_all();
+	drawLabTestBar(clone(labtestarray));
+	drawDrugsBar(clone(drugPrescribedArray));
 	
+
 	// condition-cohort patient counts:
 	var count = 0;
 	//console.log(filteredChronologicalVisData.length)
@@ -222,7 +280,7 @@ function filterByCondition(condition){
 			}
 		}		
 	}
-	$("#patients-in-condition-cohort").html("<h1>Number of patients: <span style='color:#029eca'>" + count + "</span></h1>");
+	$("#patients-in-condition-cohort").html("<h3>Number of patients: <span style='color:#029eca'>" + count + "</span></h3>");
 	
 
 	//histogram code:
@@ -245,7 +303,7 @@ function filterByCondition(condition){
 		//console.log(temp)
 		filteredMemberDataByCondition.push(temp);
 	}
-	generate_histogram("#visithistogram");
+	//generate_histogram("#visithistogram");
 	//console.log(filteredMemberDataByCondition.length)
 	//console.log(filteredMemberDataByCondition)
 
@@ -275,6 +333,7 @@ function filterByCondition(condition){
 		formattedOutputForDonut.push({"label":mapLabels[i],"value":mapForDonut[mapLabels[i]]});
 	}
 	//console.log(mapForDonut)
-	drawDonutChart(mapForDonut);
+	//drawDonutChart(mapForDonut);
+	drawVisitTypeDonut(clone(formattedOutputForDonut));
 	
 }
