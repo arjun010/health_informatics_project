@@ -14,10 +14,13 @@
 	<script src="js/bars.js"></script>
 	<script src="js/donutChart.js"></script>
 	<script src="js/bubble_chart.js"></script>
+	<script src="data/providerIdNameMap.js"></script>
 	<script type="text/javascript">
-	var activeCondition = "";
+		var activeCondition = "";
+		
+		//console.log(providerIdNameMap["111094519"])
 
-		var allEncounters = (function() {
+    	var allEncounters = (function() {
         var json = null;
         $.ajax({
             'async': false,
@@ -281,12 +284,15 @@ cursor:pointer;
 				<hr/>
 				<div id="subcharts-provider" style="height:30%">					
 					<div id="providertotallabtestbar" style="float:left;width:33%;">
+						<h4 align="center">Lab tests ordered count</h4>			
 						<svg></svg>
 					</div>
 					<div id="providerconsultationbar" style="float:left;width:33%">
+						<h4 align="center">Consultations ordered count</h4>			
 						<svg></svg>
 					</div>
 					<div id="providertotalmedicationbar" style="float:left;width:33%">
+						<h4 align="center">Medications prescribed count</h4>			
 						<svg></svg>
 					</div>
 					<div style="float:left;width:33%;">

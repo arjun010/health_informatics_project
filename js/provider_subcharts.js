@@ -16,9 +16,8 @@ function drawProviderLabTestCountMap(dataToUse){
 	    .call(chart);
 
 	chart.discretebar.dispatch.on("elementClick", function (e) {
-		
 		var selectedProviderId = dataToUse[0]["values"][e.pointIndex]["label"];
-        $("#providerlabdetailsname").html("<span style='color:#029eca'>" + selectedProviderId + "</span>");
+        $("#providerlabdetailsname").html("<span style='color:#029eca'>" + providerIdNameMap[selectedProviderId] + "</span>");
         var formattedProviderLabCountMap = [];
         var providerLabCountMap = {};
         var allLabTests = [];
@@ -74,8 +73,9 @@ function drawProviderConsultCountMap(dataToUse){
 	    .call(chart);
 
 	chart.discretebar.dispatch.on("elementClick", function (e) {
-        $("#providerconsultationdetailsname").html("<span style='color:#029eca'>" + dataToUse[0]["values"][e.pointIndex]["label"] + "</span>");
-        var selectedProviderId = dataToUse[0]["values"][e.pointIndex]["label"];
+		var selectedProviderId = dataToUse[0]["values"][e.pointIndex]["label"];
+        $("#providerconsultationdetailsname").html("<span style='color:#029eca'>" + providerIdNameMap[selectedProviderId] + "</span>");
+        
         var formattedProviderConsultationCountMap = [];
         var providerConsultCountMap = {};
         var allConsults = [];
@@ -132,9 +132,8 @@ function drawProviderMedicationCountMap(dataToUse){
 	    .call(chart);
 
 	chart.discretebar.dispatch.on("elementClick", function (e) {
-        $("#providermedicationdetailsname").html("<span style='color:#029eca'>" + dataToUse[0]["values"][e.pointIndex]["label"] + "</span>");
-
-        var selectedProviderId = dataToUse[0]["values"][e.pointIndex]["label"];
+		var selectedProviderId = dataToUse[0]["values"][e.pointIndex]["label"];
+        $("#providermedicationdetailsname").html("<span style='color:#029eca'>" + providerIdNameMap[selectedProviderId] + "</span>");
         var formattedProviderMedicationCountMap = [];
         var providerMedicationCountMap = {};
         var allMedications = [];
