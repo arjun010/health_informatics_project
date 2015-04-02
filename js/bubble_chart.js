@@ -45,7 +45,7 @@ function bubbleChart (data) {
 	
     bubble_vis.append('circle')
             .attr('r', function(d) { return d.r; })
-            .style('fill', '#029eca')
+            .style('fill', '#1f77b4')
 			.on("click", function(d){
                 activeCondition = d.name;
                 filterByCondition(d.name); 
