@@ -350,13 +350,7 @@ function filterByCondition(condition){
 		if(objectExistisInList(filteredEncounterDataByCondition[i]["providerId"],allProviders)!=1){
 			allProviders.push(filteredEncounterDataByCondition[i]["providerId"]);
 		}
-	}
-	$("#provider1").append("<option></option>");
-	$("#provider2").append("<option></option>");
-	for(var i=0;i<allProviders.length;i++){
-		$("#provider1").append("<option value="+allProviders[i]+">"+allProviders[i]+"</option>");
-		$("#provider2").append("<option value="+allProviders[i]+">"+allProviders[i]+"</option>");
-	}
+	}	
 
 	var providerLabCountMap = {};
 	for(var i=0;i<allProviders.length;i++){
