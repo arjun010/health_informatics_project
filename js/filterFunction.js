@@ -263,6 +263,13 @@ function filterByCondition(condition){
 	}
 	//console.log(labtestarray)
 	//draw_charts_all();
+	labtestarray[0]["values"].sort(function(a, b) {
+    return b.value - a.value;
+	});
+	drugPrescribedArray[0]["values"].sort(function(a, b) {
+    return b.value - a.value;
+	});
+
 	drawLabTestBar(clone(labtestarray));
 	drawDrugsBar(clone(drugPrescribedArray));
 	
@@ -366,6 +373,10 @@ function filterByCondition(condition){
 			formattedProviderLabCountMap[0]["values"].push({"label":allProviders[i],"value":providerLabCountMap[allProviders[i]]});
 		}
 	}
+	formattedProviderLabCountMap[0]["values"].sort(function(a, b) {
+    return b.value - a.value;
+	});
+
 	drawProviderLabTestCountMap(clone(formattedProviderLabCountMap))
 
 	// provider consult counts
@@ -384,6 +395,10 @@ function filterByCondition(condition){
 			formattedProviderConsultCountMap[0]["values"].push({"label":allProviders[i],"value":providerConsultCountMap[allProviders[i]]});
 		}
 	}
+	formattedProviderConsultCountMap[0]["values"].sort(function(a, b) {
+    return b.value - a.value;
+	});
+
 	drawProviderConsultCountMap(clone(formattedProviderConsultCountMap))
 
 
@@ -403,6 +418,9 @@ function filterByCondition(condition){
 			formattedProviderMedicationCountMap[0]["values"].push({"label":allProviders[i],"value":providerMedicationCountMap[allProviders[i]]});
 		}
 	}
+	formattedProviderMedicationCountMap[0]["values"].sort(function(a, b) {
+    return b.value - a.value;
+	});
 	drawProviderMedicationCountMap(clone(formattedProviderMedicationCountMap))
 
 }
