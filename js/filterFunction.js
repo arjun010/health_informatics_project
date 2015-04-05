@@ -7,6 +7,20 @@ function objectExistisInList(obj,list){
 	return 0;
 }
 
+function getCombinations(inpArr){
+	var resList = [];
+	console.log(inpArr.length)
+	for(var i=0;i<inpArr.length;i++){
+		for(var j=0;j<inpArr.length;j++){
+			if(objectExistisInList([inpArr[i],inpArr[j]],resList)==0){
+				resList.push([inpArr[i],inpArr[j]]);
+			}
+			//console.log(inpArr[i],inpArr[j])
+		}
+	}
+	return resList;
+}
+
 function applyFilters(){
 	
 	filteredEncounterData = [];
@@ -176,6 +190,60 @@ function applyFilters(){
 	}
 	
 	$("#membercounttext").html("<h1>Patients: <span style='color:#029eca'>" + filteredChronologicalVisData.length + "</span></h1>");
+	//console.log(filteredChronologicalVisData.length)
+
+	var nodeList = [];
+	for(var i=0;i<filteredChronologicalVisData.length;i++){
+		for(var j=0;j<filteredChronologicalVisData[i]["encounterList"].length;j++){
+			if(objectExistisInList(filteredChronologicalVisData[i]["encounterList"][j]["event"],nodeList)==0){
+				nodeList.push(filteredChronologicalVisData[i]["encounterList"][j]["event"])
+			}
+		}
+	}
+	//console.log(nodeList)
+	var nodeCountMap = {};
+	for(var i=0;i<nodeList.length;i++){
+		nodeCountMap[nodeList[i]] = 0;
+	}
+	for(var i=0;i<filteredChronologicalVisData.length;i++){
+		for(var j=0;j<filteredChronologicalVisData[i]["encounterList"].length;j++){
+			nodeCountMap[filteredChronologicalVisData[i]["encounterList"][j]["event"]]+=1
+		}
+	}
+	//console.log(getCombinations(nodeList))
+	var linksList = getCombinations(nodeList);
+	var linkCountMap = {};
+	for(var i=0;i<linksList.length;i++){
+		linkCountMap[linksList[i]] = 0;
+	}
+	//console.log(linkMap)
+	for(var i=0;i<filteredChronologicalVisData.length;i++){//for each patient
+		var currentEncounterList = filteredChronologicalVisData[i]["encounterList"];
+		for(var j=0;j<currentEncounterList.length-1;j++){
+			var curAndNextTuple = [currentEncounterList[j]["event"],currentEncounterList[j+1]["event"]];
+			linkCountMap[curAndNextTuple]+=1;
+		}
+	}
+	//console.log(nodeCountMap)
+	//console.log(linkCountMap)
+	//if (!(sourceTargetPair in Object.keys(sourceTargetDict)))
+	var markovLinks = [];
+	for(var i=0;i<linksList.length;i++){
+		var curTuple = [linksList[i][0],linksList[i][1]];
+		var outGoingCount = nodeCountMap[curTuple[0]];
+		var linkCount = linkCountMap[curTuple];
+		var curProbability = 0.0 + linkCount/outGoingCount;
+		markovLinks.push({"source":nodeList.indexOf(curTuple[0]),"target":nodeList.indexOf(curTuple[1]),"probability":""+curProbability.toFixed(3)})
+	}
+	//console.log(links);
+	var markovNodes = [];
+	var startX = 30;
+	for(var i=0;i<nodeList.length;i++){
+		markovNodes.push({"name":nodeList[i],"count":nodeCountMap[nodeList[i]],"x":startX,"y":250,"fixed":true});
+		startX+=200;
+	} 
+	//console.log(typeof(markovNodes),typeof(markovLinks))
+	drawMarkov(markovNodes,markovLinks,nodeList);
 
 	d3.select("#bubbleChart").selectAll("svg").remove();
 	d3.select('#barlabtest').selectAll('svg').remove();
@@ -185,7 +253,8 @@ function applyFilters(){
 	$("#selected-bubble").html("");
 	$("#patients-in-condition-cohort").html("");	
 	$(".visittypesheading").remove();
-	activeCondition = "";
+	activeCondition = " ";
+	filterByCondition(activeCondition)
 	//console.log(filteredEncounterData.length)
 	//BUBBLE CHART FUNCTION CALL HERE
 	//drawBubbleChart(); //use the filteredEncounterData variable - it is global
@@ -194,8 +263,12 @@ function applyFilters(){
 }
 
 function filterByCondition(condition){
-
-
+	drawProviderLabCountDetailsDonut([]);
+	drawProviderConsultationCountDetailsDonut([]);
+	drawProviderMedicationCountDetailsDonut([]);
+	$("#providerlabdetailsname").html("<span style='color:#029eca'></span>");
+	$("#providerconsultationdetailsname").html("<span style='color:#029eca'></span>");
+	$("#providermedicationdetailsname").html("<span style='color:#029eca'></span>");
 	//bar charts :
 	filteredEncounterDataByCondition = [];
 	filteredMemberDataByCondition = [];
@@ -288,7 +361,6 @@ function filterByCondition(condition){
 	}
 	$(".patients-in-condition-cohort").html("<h3>Number of patients: <span style='color:#029eca'>" + count + "</span></h3>");
 	
-
 	//histogram code:
 	var filteredPatientEncounterList = [];
 	for(var i=0;i<filteredChronologicalVisData.length;i++){
@@ -416,5 +488,4 @@ function filterByCondition(condition){
     return b.value - a.value;
 	});
 	drawProviderMedicationCountMap(clone(formattedProviderMedicationCountMap))
-
 }

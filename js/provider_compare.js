@@ -44,7 +44,7 @@ function drawProviderComparison(dataToUse){
         .margin({top: 30, right: 20, bottom: 50, left: 175})
         .showValues(true)           //Show bar value next to each bar.
         .tooltips(true)             //Show tooltips on hover.
-        .showControls(true)
+        .showControls(false)
         .color(function(d){return d.color });        //Allow user to switch between "Grouped" and "Stacked" mode.
 
     chart.yAxis

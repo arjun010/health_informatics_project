@@ -12,6 +12,7 @@
 	<script src="js/encounter_subcharts.js"></script>
 	<script src="js/provider_subcharts.js"></script>
 	<script src="js/provider_compare.js"></script>
+	<script src="js/markov.js"></script>
 	<script src="js/bars.js"></script>
 	<script src="js/donutChart.js"></script>
 	<script src="js/bubble_chart.js"></script>
@@ -61,6 +62,17 @@
 body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
+
+.link {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+circle {
+  fill: #ccc;  
+}
+
 /*
 .barz rect {
   fill: #3366CC;
@@ -140,8 +152,8 @@ cursor:pointer;
             
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<a class="navbar-brand" href="#" style="margin-left:100px;" onclick="toggleView(1)"><b>Encounter-level</b></a>
-				<!--<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(2)"><b>Patient-level</b></a>-->
-				<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(3)"><b>Provider-level</b></a>
+				<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(2)"><b>Careflow-level</b></a>
+				<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(3)"><b>Provider-comparison</b></a>
 			</div>
             
     </nav>
@@ -259,6 +271,7 @@ cursor:pointer;
 				    </div>
 				  </div>
 				</nav>-->
+				<div id="encounterlevel_sub">
 				<hr/>
 				<h2> Encounter-level Statistics</h2>
 				<hr/>
@@ -276,7 +289,6 @@ cursor:pointer;
 						<svg></svg>	
 					</div>
 				</div>
-				
 				<!--<nav class="navbar navbar-default">
 				  <div class="container-fluid">
 				    <div class="navbar-header">
@@ -321,23 +333,15 @@ cursor:pointer;
 					</div>
 					<div id="providermedicationdetailsdonut" style="float:left;width:33%">
 						<svg></svg>
-					</div>
-					<!--<h3>Compare providers(accumulated values across all encounters)</h3>
-					<div id="providercompare">
-					<select id="provider1"></select><select id="provider2"></select><button onclick="compareProviders()">Compare Providers</button>
-						<div id="providerencountercompare">
-							<svg></svg>
-						</div>
-						<div id="" style="float:left;width:33%">
-							<svg></svg>
-						</div>
-						<div id="" style="float:left;width:33%">
-							<svg></svg>
-						</div>
-					</div>-->
-
-				</div>	
+					</div>					
+				</div>				
+				</div>
 		</div>
+		</div>
+		<div id="careflowlevel" class="hide">
+			<h3>Careflow process for cohort</h3>
+			<div id="markovviz" style="height:50%;width:80%;float:left;">
+			</div>	
 		</div>
 		<div id="providerlevel" class="hide">
 			<h3>Compare providers(accumulated values across all encounters)</h3>
@@ -356,8 +360,8 @@ cursor:pointer;
 			$("#encounterLevel").removeClass("hide");
 			$("#encounterLevel").addClass("show");
 			
-			$("#patientLevel").removeClass("show");
-			$("#patientLevel").addClass("hide");
+			$("#careflowlevel").removeClass("show");
+			$("#careflowlevel").addClass("hide");
 
 			$("#providerlevel").removeClass("show");
 			$("#providerlevel").addClass("hide");			
@@ -365,8 +369,8 @@ cursor:pointer;
 			$("#encounterLevel").removeClass("show");
 			$("#encounterLevel").addClass("hide");
 
-			$("#patientLevel").removeClass("hide");
-			$("#patientLevel").addClass("show");
+			$("#careflowlevel").removeClass("hide");
+			$("#careflowlevel").addClass("show");
 
 			$("#providerlevel").removeClass("show");
 			$("#providerlevel").addClass("hide");			
@@ -374,8 +378,8 @@ cursor:pointer;
 			$("#encounterLevel").removeClass("show");
 			$("#encounterLevel").addClass("hide");
 
-			$("#patientLevel").removeClass("show");
-			$("#patientLevel").addClass("hide");			
+			$("#careflowlevel").removeClass("show");
+			$("#careflowlevel").addClass("hide");			
 
 			$("#providerlevel").removeClass("hide");
 			$("#providerlevel").addClass("show");		
@@ -391,8 +395,8 @@ cursor:pointer;
 	$("#provider1").append("<option></option>");
 	$("#provider2").append("<option></option>");
 	for(var i=0;i<allProviders.length;i++){
-		$("#provider1").append("<option value="+allProviders[i]+">"+allProviders[i]+"</option>");
-		$("#provider2").append("<option value="+allProviders[i]+">"+allProviders[i]+"</option>");
+		$("#provider1").append("<option value="+allProviders[i]+">"+providerIdNameMap[allProviders[i]]+"</option>");
+		$("#provider2").append("<option value="+allProviders[i]+">"+providerIdNameMap[allProviders[i]]+"</option>");
 	}
 
 	function unique(list) {
