@@ -1,5 +1,9 @@
-function drawMarkov(companynodes,companylinks,nodelist){
-d3.select("#markovviz").selectAll("svg").remove();
+function drawMarkov(companynodes,companylinks,nodelist,location){
+if(location==1){
+  d3.select("#markovvis1").selectAll("svg").remove();  
+}else if(location==2){
+  d3.select("#markovviz").selectAll("svg").remove();
+}
 
 function objectIsInList(object,list){
   for(var i = 0;i<list.length;i++){
@@ -28,7 +32,7 @@ links.forEach(function(link) {
 });
 
 var width = 700,
-    height = 500;
+    height = 200;
 
 function sigmoid(t,k) {
     return 1/(1+Math.pow(Math.E, -(k*(t-0.5))));
@@ -51,9 +55,18 @@ var lScale = d3.scale.linear().domain(d3.extent(links, function(d) {
   })).range([0.3,1]);
 
 var wScaleProb = d3.scale.linear().domain([0,1]).range([1,8]);
-var svg = d3.select("#markovviz").append("svg")
+
+var svg;
+
+if(location==1){
+ svg = d3.select("#markovvis1").append("svg")
     .attr("width", width)
     .attr("height", height);
+}else if(location==2){
+ svg = d3.select("#markovviz").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+}
 
 var path = svg.append("g").selectAll("path")
     .data(force.links())

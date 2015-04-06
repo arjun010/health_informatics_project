@@ -243,7 +243,7 @@ function applyFilters(){
 		startX+=200;
 	} 
 	//console.log(typeof(markovNodes),typeof(markovLinks))
-	drawMarkov(markovNodes,markovLinks,nodeList);
+	drawMarkov(markovNodes,markovLinks,nodeList,2);
 
 	d3.select("#bubbleChart").selectAll("svg").remove();
 	d3.select('#barlabtest').selectAll('svg').remove();
@@ -488,4 +488,77 @@ function filterByCondition(condition){
     return b.value - a.value;
 	});
 	drawProviderMedicationCountMap(clone(formattedProviderMedicationCountMap))
+
+
+
+
+	//
+	var filteredPatientEncounterList = [];
+	for(var i=0;i<filteredChronologicalVisData.length;i++){
+		var curPatient = filteredChronologicalVisData[i]["memberId"];
+		var currentEncounterList = filteredChronologicalVisData[i]["encounterList"];
+		var listToAdd = [];
+		for(var j=0;j<currentEncounterList.length;j++){
+			if(currentEncounterList[j]["complain"]==condition){
+				console.log(currentEncounterList[j]["complain"])
+				listToAdd.push(currentEncounterList[j])
+			}
+		}
+		console.log(listToAdd)
+		filteredPatientEncounterList.push({"memberId":curPatient,"encounterList":clone(listToAdd)});
+	}
+	//console.log(filteredPatientEncounterList);
+
+	var nodeList = [];
+	for(var i=0;i<filteredPatientEncounterList.length;i++){
+		for(var j=0;j<filteredPatientEncounterList[i]["encounterList"].length;j++){
+			if(objectExistisInList(filteredPatientEncounterList[i]["encounterList"][j]["event"],nodeList)==0){
+				nodeList.push(filteredPatientEncounterList[i]["encounterList"][j]["event"])
+			}
+		}
+	}
+	//console.log(nodeList)
+	var nodeCountMap = {};
+	for(var i=0;i<nodeList.length;i++){
+		nodeCountMap[nodeList[i]] = 0;
+	}
+	for(var i=0;i<filteredPatientEncounterList.length;i++){
+		for(var j=0;j<filteredPatientEncounterList[i]["encounterList"].length;j++){
+			nodeCountMap[filteredPatientEncounterList[i]["encounterList"][j]["event"]]+=1
+		}
+	}
+	//console.log(getCombinations(nodeList))
+	var linksList = getCombinations(nodeList);
+	var linkCountMap = {};
+	for(var i=0;i<linksList.length;i++){
+		linkCountMap[linksList[i]] = 0;
+	}
+	//console.log(linkMap)
+	for(var i=0;i<filteredPatientEncounterList.length;i++){//for each patient
+		var currentEncounterList = filteredPatientEncounterList[i]["encounterList"];
+		for(var j=0;j<currentEncounterList.length-1;j++){
+			var curAndNextTuple = [currentEncounterList[j]["event"],currentEncounterList[j+1]["event"]];
+			linkCountMap[curAndNextTuple]+=1;
+		}
+	}
+	//console.log(nodeCountMap)
+	//console.log(linkCountMap)
+	//if (!(sourceTargetPair in Object.keys(sourceTargetDict)))
+	var markovLinks = [];
+	for(var i=0;i<linksList.length;i++){
+		var curTuple = [linksList[i][0],linksList[i][1]];
+		var outGoingCount = nodeCountMap[curTuple[0]];
+		var linkCount = linkCountMap[curTuple];
+		var curProbability = 0.0 + linkCount/outGoingCount;
+		markovLinks.push({"source":nodeList.indexOf(curTuple[0]),"target":nodeList.indexOf(curTuple[1]),"probability":""+curProbability.toFixed(3)})
+	}
+	//console.log(links);
+	var markovNodes = [];
+	var startX = 30;
+	for(var i=0;i<nodeList.length;i++){
+		markovNodes.push({"name":nodeList[i],"count":nodeCountMap[nodeList[i]],"x":startX,"y":100,"fixed":true});
+		startX+=200;
+	} 
+	//console.log(typeof(markovNodes),typeof(markovLinks))
+	drawMarkov(markovNodes,markovLinks,nodeList,1);
 }
