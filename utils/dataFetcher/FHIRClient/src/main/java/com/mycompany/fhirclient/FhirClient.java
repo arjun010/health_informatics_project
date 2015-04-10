@@ -115,7 +115,7 @@ public class FhirClient {
         }
         
         try {
-            FileWriter file = new FileWriter("/Users/arjunanand/Desktop/encounters.json");
+            FileWriter file = new FileWriter("encounters.json");
             file.write(jsonEncounters.toString());
             file.close();
         } catch (IOException ex) {
@@ -153,7 +153,7 @@ public class FhirClient {
         }
         
         try {
-            FileWriter file = new FileWriter("/Users/arjunanand/Desktop/encounterHistory.json");
+            FileWriter file = new FileWriter("encounterHistory.json");
             file.write(jsonPatients.toString());
             file.close();
         } catch (IOException ex) {
