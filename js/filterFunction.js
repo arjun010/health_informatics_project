@@ -261,7 +261,7 @@ function applyFilters(){
 	d3.select('#bardrugs').selectAll('svg').remove();
 	d3.select('#visittypedougnut').selectAll('svg').remove();
 	d3.select('#visithistogram').selectAll('svg').remove();
-	$("#selected-bubble").html("");
+	$(".selected-bubble").html("<h3>Selected Condition: <span style='color:#029eca'>" + "---" + "</span></h3>");
 	$("#patients-in-condition-cohort").html("");	
 	$(".visittypesheading").remove();
 	activeCondition = " ";
@@ -289,7 +289,11 @@ function filterByCondition(condition){
 			filteredEncounterDataByCondition.push(filteredEncounterData[i]);
 		}
 	}
-	$(".selected-bubble").html("<h3>Selected Condition: <span style='color:#029eca'>" + condition + "</span></h3>");
+	if(condition==" "){
+		$(".selected-bubble").html("<h3>Selected Condition: <span style='color:#029eca'>" + "---" + "</span></h3>");		
+	}else{
+		$(".selected-bubble").html("<h3>Selected Condition: <span style='color:#029eca'>" + condition + "</span></h3>");
+	}
 	var labtestarray = [{"values":[]}];
 	var allLabTestNames = [];
 	var drugPrescribedArray = [{"values":[]}];
