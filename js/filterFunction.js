@@ -204,36 +204,47 @@ function applyFilters(){
 	var nodeCountMap = {};
 	for(var i=0;i<nodeList.length;i++){
 		nodeCountMap[nodeList[i]] = 0;
-	}
-	for(var i=0;i<filteredChronologicalVisData.length;i++){
-		for(var j=0;j<filteredChronologicalVisData[i]["encounterList"].length;j++){
+	}	/*
+	for(var i=0;i<filteredChronologicalVisData.length;i++){//for each patient
+		for(var j=0;j<filteredChronologicalVisData[i]["encounterList"].length;j++){ //for each encounter
 			nodeCountMap[filteredChronologicalVisData[i]["encounterList"][j]["event"]]+=1
 		}
 	}
-	//console.log(getCombinations(nodeList))
+	console.log(filteredChronologicalVisData)*/
+	var tsum =0 ;
+	/*for(var i=0;i<filteredChronologicalVisData.length;i++){
+		tsum+=filteredChronologicalVisData[i]["encounterList"].length;
+	}
+	console.log(tsum)*/
+	console.log("NODE COUNT MAP" + JSON.stringify(nodeCountMap))
 	var linksList = getCombinations(nodeList);
+	//console.log(linksList)
 	var linkCountMap = {};
 	for(var i=0;i<linksList.length;i++){
 		linkCountMap[linksList[i]] = 0;
 	}
-	//console.log(linkMap)
+	console.log(linkCountMap)
 	for(var i=0;i<filteredChronologicalVisData.length;i++){//for each patient
 		var currentEncounterList = filteredChronologicalVisData[i]["encounterList"];
 		for(var j=0;j<currentEncounterList.length-1;j++){
 			var curAndNextTuple = [currentEncounterList[j]["event"],currentEncounterList[j+1]["event"]];
 			linkCountMap[curAndNextTuple]+=1;
 		}
-	}
+	}	
+	for(var i=0;i<linksList.length;i++){
+		nodeCountMap[linksList[i][0]] += linkCountMap[linksList[i]]
+	}	
 	//console.log(nodeCountMap)
-	//console.log(linkCountMap)
 	//if (!(sourceTargetPair in Object.keys(sourceTargetDict)))
 	var markovLinks = [];
 	for(var i=0;i<linksList.length;i++){
 		var curTuple = [linksList[i][0],linksList[i][1]];
 		var outGoingCount = nodeCountMap[curTuple[0]];
 		var linkCount = linkCountMap[curTuple];
-		var curProbability = 0.0 + linkCount/outGoingCount;
-		markovLinks.push({"source":nodeList.indexOf(curTuple[0]),"target":nodeList.indexOf(curTuple[1]),"probability":""+curProbability.toFixed(3)})
+		var curProbability = parseFloat(linkCount/outGoingCount);
+		if(curProbability>0){
+			markovLinks.push({"source":nodeList.indexOf(curTuple[0]),"target":nodeList.indexOf(curTuple[1]),"probability":""+curProbability})		
+		}
 	}
 	//console.log(links);
 	var markovNodes = [];
@@ -522,11 +533,12 @@ function filterByCondition(condition){
 	for(var i=0;i<nodeList.length;i++){
 		nodeCountMap[nodeList[i]] = 0;
 	}
+	/*
 	for(var i=0;i<filteredPatientEncounterList.length;i++){
 		for(var j=0;j<filteredPatientEncounterList[i]["encounterList"].length;j++){
 			nodeCountMap[filteredPatientEncounterList[i]["encounterList"][j]["event"]]+=1
 		}
-	}
+	}*/
 	//console.log(getCombinations(nodeList))
 	var linksList = getCombinations(nodeList);
 	var linkCountMap = {};
@@ -541,6 +553,9 @@ function filterByCondition(condition){
 			linkCountMap[curAndNextTuple]+=1;
 		}
 	}
+	for(var i=0;i<linksList.length;i++){
+		nodeCountMap[linksList[i][0]] += linkCountMap[linksList[i]]
+	}	
 	//console.log(nodeCountMap)
 	//console.log(linkCountMap)
 	//if (!(sourceTargetPair in Object.keys(sourceTargetDict)))
@@ -549,8 +564,8 @@ function filterByCondition(condition){
 		var curTuple = [linksList[i][0],linksList[i][1]];
 		var outGoingCount = nodeCountMap[curTuple[0]];
 		var linkCount = linkCountMap[curTuple];
-		var curProbability = 0.0 + linkCount/outGoingCount;
-		markovLinks.push({"source":nodeList.indexOf(curTuple[0]),"target":nodeList.indexOf(curTuple[1]),"probability":""+curProbability.toFixed(3)})
+		var curProbability = parseFloat(linkCount/outGoingCount);
+		markovLinks.push({"source":nodeList.indexOf(curTuple[0]),"target":nodeList.indexOf(curTuple[1]),"probability":""+curProbability})		
 	}
 	//console.log(links);
 	var markovNodes = [];
