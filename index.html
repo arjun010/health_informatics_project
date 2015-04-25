@@ -151,9 +151,9 @@ cursor:pointer;
             </div>
             
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a class="navbar-brand" href="#" style="margin-left:100px;" onclick="toggleView(1)"><b>Encounter-level</b></a>
-				<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(2)"><b>Careflow-level</b></a>
-				<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(3)"><b>Provider-comparison</b></a>
+				<a class="navbar-brand" href="#" style="margin-left:100px;" onclick="toggleView(1)"><b>Condition-level</b></a>
+				<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(2)"><b>Cohort-level</b></a>
+				<!--<a class="navbar-brand" href="#" style="margin-left:50px" onclick="toggleView(3)"><b>Provider-comparison</b></a>-->
 			</div>
             
     </nav>
@@ -253,110 +253,113 @@ cursor:pointer;
 		<div id="encounterLevel">
 			<div class="col-sm-8">	
 
-				<div style="height:10px">
-					<div id="encountercounttext" style="float:left;"></div>
-					<div id="membercounttext" style="float:right;"></div>
-				</div>
-
-				<div style="height:55%;margin-left:35%" id="bubblechart"></div>			
-
-				<div style="height:10%;">
-					<div class="selected-bubble" style="float:left;"></div>
-					<div class="patients-in-condition-cohort" style="float:right;"></div>					
-				</div>
-				<!--<nav class="navbar navbar-default">
-				  <div class="container-fluid">
-				    <div class="navbar-header">
-				  		<h2>Encounter-Level</h2>
-				    </div>
-				  </div>
-				</nav>-->
-				<div id="encounterlevel_sub">
-				<hr/>
-				<h2> Encounter-level Statistics</h2>
-				<hr/>
-				<div id="subcharts-encounter" style="height:30%">		
-					<div id="drugbarchart" style="float:left;width:33%">
-						<h4 align="center">Drugs ordered</h4>			
-						<svg></svg>			
-					</div>
-					<div id="labtestbarchart" style="float:left;width:33%">
-						<h4 align="center">Lab tests</h4>
-						<svg></svg>		
-					</div>
-					<div id="visitypedonutchart"style="float:right;width:33%">
-						<h4 align="center">Visit types distribution</h4>
-						<svg></svg>	
-					</div>
-				</div>
-				<!--<nav class="navbar navbar-default">
-				  <div class="container-fluid">
-				    <div class="navbar-header">
-				  		<h2>Provider-Level</h2>
-				    </div>
-				  </div>
-				</nav>-->
-				<hr/>
-				<h2> Provider-level Statistics</h2>
-				<hr/>
-				<div id="subcharts-provider" style="height:30%">					
-					<div id="providertotallabtestbar" style="float:left;width:33%;">
-						<h4 align="center">Lab tests ordered</h4>			
-						<svg></svg>
-					</div>
-					<div id="providerconsultationbar" style="float:left;width:33%">
-						<h4 align="center">Consultations ordered</h4>			
-						<svg></svg>
-					</div>
-					<div id="providertotalmedicationbar" style="float:left;width:33%">
-						<h4 align="center">Medications prescribed</h4>			
-						<svg></svg>
-					</div>
-					<div style="float:left;width:33%;">
-						<h4 align="center">Lab test distribution</h4>
-						<h4 align="center">Provider selected: <span id="providerlabdetailsname"></span></h4>
-					</div>
-					<div style="float:left;width:33%">
-						<h4 align="center">Requested consultations distribution</h4>
-						<h4 align="center">Provider selected: <span id="providerconsultationdetailsname"></span></h4>
-					</div>
-					<div style="float:left;width:33%">
-						<h4 align="center">Drugs ordered distribution</h4>
-						<h4 align="center">Provider selected: <span id="providermedicationdetailsname"></span></h4>
+					<div style="height:10px">
+						<div id="encountercounttext" style="float:left;"></div>
+						<div id="membercounttext" style="float:right;"></div>
 					</div>
 
-					<div id="providerlabdetailsdonut" style="float:left;width:33%;">
-						<svg></svg>
+					<div style="height:55%;margin-left:35%" id="bubblechart"></div>			
+
+					<div style="height:10%;">
+						<div class="selected-bubble" style="float:left;"></div>
+						<div class="patients-in-condition-cohort" style="float:right;"></div>					
 					</div>
-					<div id="providerconsultationdetailsdonut" style="float:left;width:33%">
-						<svg></svg>
+					<!--<nav class="navbar navbar-default">
+					  <div class="container-fluid">
+						<div class="navbar-header">
+							<h2>Encounter-Level</h2>
+						</div>
+					  </div>
+					</nav>-->
+					<div id="encounterlevel_sub">
+					<hr/>
+					<h2> Cohort-level Statistics</h2>
+					<hr/>
+					<div id="subcharts-encounter" style="height:30%">		
+						<div id="drugbarchart" style="float:left;width:33%">
+							<h4 align="center">Drugs ordered</h4>			
+							<svg></svg>			
+						</div>
+						<div id="labtestbarchart" style="float:left;width:33%">
+							<h4 align="center">Lab tests</h4>
+							<svg></svg>		
+						</div>
+						<div id="visitypedonutchart"style="float:right;width:33%">
+							<h4 align="center">Visit types distribution</h4>
+							<svg></svg>	
+						</div>
 					</div>
-					<div id="providermedicationdetailsdonut" style="float:left;width:33%">
-						<svg></svg>
-					</div>					
-				</div>
-				<hr/>
-				<h2> Careflow-level Statistics</h2>
-				<hr/>
-				<div id="careflow_filtered" style="height:30%">					
-					<div id="markovvis1"></div>
-				</div>			
-				</div>
-		</div>
+					<!--<nav class="navbar navbar-default">
+					  <div class="container-fluid">
+						<div class="navbar-header">
+							<h2>Provider-Level</h2>
+						</div>
+					  </div>
+					</nav>-->
+					<hr/>
+					<h2> Provider-level Statistics</h2>
+					<hr/>
+					<div id="subcharts-provider" style="height:30%">					
+						<div id="providertotallabtestbar" style="float:left;width:33%;">
+							<h4 align="center">Lab tests ordered</h4>			
+							<svg></svg>
+						</div>
+						<div id="providerconsultationbar" style="float:left;width:33%">
+							<h4 align="center">Consultations ordered</h4>			
+							<svg></svg>
+						</div>
+						<div id="providertotalmedicationbar" style="float:left;width:33%">
+							<h4 align="center">Medications prescribed</h4>			
+							<svg></svg>
+						</div>
+						<div style="float:left;width:33%;">
+							<h4 align="center">Lab test distribution</h4>
+							<h4 align="center">Provider selected: <span id="providerlabdetailsname"></span></h4>
+						</div>
+						<div style="float:left;width:33%">
+							<h4 align="center">Requested consultations distribution</h4>
+							<h4 align="center">Provider selected: <span id="providerconsultationdetailsname"></span></h4>
+						</div>
+						<div style="float:left;width:33%">
+							<h4 align="center">Drugs ordered distribution</h4>
+							<h4 align="center">Provider selected: <span id="providermedicationdetailsname"></span></h4>
+						</div>
+
+						<div id="providerlabdetailsdonut" style="float:left;width:33%;">
+							<svg></svg>
+						</div>
+						<div id="providerconsultationdetailsdonut" style="float:left;width:33%">
+							<svg></svg>
+						</div>
+						<div id="providermedicationdetailsdonut" style="float:left;width:33%">
+							<svg></svg>
+						</div>					
+					</div>
+					<hr/>
+					<h2> Careflow-level Statistics</h2>
+					<hr/>
+					<div id="careflow_filtered" style="height:30%">					
+						<div id="markovvis1"></div>
+					</div>			
+					</div>
+			</div>
 		</div>
 		<div id="careflowlevel" class="hide">
-			<h3>Careflow process for cohort</h3>
-			<div id="markovviz" style="height:50%;width:80%;float:left;">
-			</div>	
-		</div>
-		<div id="providerlevel" class="hide">
-			<h3>Compare providers(accumulated values across all encounters)</h3>
-			<select id="provider1"></select><select id="provider2"></select><button onclick="compareProviders()">Compare Providers</button>
-			<div id="providerencountercompare" style="height:40%;width:60%;float:left;">
-				<svg></svg>
-			</div>	
-		</div>
-		</div>
+			<div class="col-sm-8">
+				<div id="careflowlevel1">
+					<h3>Careflow process for cohort</h3>
+					<div id="markovviz" style="height:50%;width:80%;float:left;">
+					</div>	
+				</div>
+				<div id="careflowlevel2"  style="float:left;">
+					<h3>Compare providers(accumulated values across all encounters)</h3>
+					<select id="provider1"></select><select id="provider2"></select><button onclick="compareProviders()">Compare Providers</button>
+					<div id="providerencountercompare" style="width:900px;float:left;">
+						<svg></svg>
+					</div>	
+				</div>
+			</div>
+		</div> <!-- </div> already existing...  -->
 	
 </body>
 <script type="text/javascript" src="js/filterFunction.js"></script>
@@ -368,19 +371,20 @@ cursor:pointer;
 			
 			$("#careflowlevel").removeClass("show");
 			$("#careflowlevel").addClass("hide");
-
+			/*
 			$("#providerlevel").removeClass("show");
-			$("#providerlevel").addClass("hide");			
+			$("#providerlevel").addClass("hide");			*/
 		}else if(selectedView==2){
 			$("#encounterLevel").removeClass("show");
 			$("#encounterLevel").addClass("hide");
 
 			$("#careflowlevel").removeClass("hide");
 			$("#careflowlevel").addClass("show");
-
+			/*
 			$("#providerlevel").removeClass("show");
-			$("#providerlevel").addClass("hide");			
+			$("#providerlevel").addClass("hide");			*/
 		}else if(selectedView==3){
+		/*
 			$("#encounterLevel").removeClass("show");
 			$("#encounterLevel").addClass("hide");
 
@@ -389,7 +393,7 @@ cursor:pointer;
 
 			$("#providerlevel").removeClass("hide");
 			$("#providerlevel").addClass("show");		
-
+		*/
 		}
 			
 	}
