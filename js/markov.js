@@ -83,6 +83,13 @@ var circle = svg.append("g").selectAll("circle")
     .data(force.nodes())
     .enter()
     .append("circle")
+    .style("fill",function(){
+      if(location==1){
+        return "#1f77b4"
+      }else{
+        return "#ccc"
+      }
+    })
     .attr("r", function(d){
       return scale(d.count);
     })

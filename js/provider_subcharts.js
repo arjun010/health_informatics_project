@@ -8,8 +8,16 @@ function drawProviderLabTestCountMap(dataToUse){
 	    		.y(function(d) { return d.value })
 	    		.staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
 	    		.tooltips(true)        //Don't show tooltips
-		    	.showValues(true)
+		    	.showValues(false)
 		    	.showXAxis(false);
+
+
+	chart.tooltipContent(function (key, date, e, graph) {
+     var pId = graph.point.label;
+     return  "<p><b>" + providerIdNameMap[pId] + "</b></p><p>Count: " + graph.point.value +"</p>";
+	});
+
+
 
 	d3.select('#providertotallabtestbar svg')
 	    .datum(dataToUse)
@@ -67,12 +75,17 @@ function drawProviderConsultCountMap(dataToUse){
 	    		.y(function(d) { return d.value })
 	    		.staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
 	    		.tooltips(true)        //Don't show tooltips
-		    	.showValues(true)
+		    	.showValues(false)
 		    	.showXAxis(false);
 
 	d3.select('#providerconsultationbar svg')
 	    .datum(dataToUse)
 	    .call(chart);
+
+	chart.tooltipContent(function (key, date, e, graph) {
+     var pId = graph.point.label;
+     return  "<p><b>" + providerIdNameMap[pId] +"</b></p><p>Count: " + graph.point.value +"</p>";
+	});
 
 	chart.discretebar.dispatch.on("elementClick", function (e) {
 		var selectedProviderId = e.point.label;//dataToUse[0]["values"][e.pointIndex]["label"];
@@ -127,12 +140,18 @@ function drawProviderMedicationCountMap(dataToUse){
 	    		.y(function(d) { return d.value })
 	    		.staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
 	    		.tooltips(true)        //Don't show tooltips
-		    	.showValues(true)
+		    	.showValues(false)
 		    	.showXAxis(false);
 
 	d3.select('#providertotalmedicationbar svg')
 	    .datum(dataToUse)
 	    .call(chart);
+
+
+	chart.tooltipContent(function (key, date, e, graph) {
+     var pId = graph.point.label;
+     return  "<p><b>" + providerIdNameMap[pId] + "</b></p><p>Count: " + graph.point.value +"</p>";
+	});
 
 	chart.discretebar.dispatch.on("elementClick", function (e) {
 		var selectedProviderId = e.point.label;//dataToUse[0]["values"][e.pointIndex]["label"];
