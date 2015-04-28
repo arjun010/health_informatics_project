@@ -62,6 +62,26 @@ function drawProviderComparison(dataToUse){
         .datum(dataToUse)
         .call(chart);
 
+    d3.selectAll("g.nv-bar.positive").each(function(d){
+    	if(d.series==1){
+    		d3.select(this).select("rect").style("fill","#1f77b4")
+    	}else{
+    		d3.select(this).select("rect").style("fill","#c3e0f4")
+    	}
+    });
+    var first = 1;
+    d3.selectAll("g.nv-series").each(function(d){
+    	console.log(d)
+    	d3.select(this).select("circle").style("stroke","")
+    	if(d.key){
+    		if(first==1){
+    			d3.select(this).select("circle").style("fill","#c3e0f4")    			
+    		}else{
+    			d3.select(this).select("circle").style("fill","#1f77b4")
+    		}
+    		first = 0
+    	}
+    });
 
     nv.utils.windowResize(chart.update);
 

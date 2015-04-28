@@ -84,11 +84,7 @@ var circle = svg.append("g").selectAll("circle")
     .enter()
     .append("circle")
     .style("fill",function(){
-      if(location==1){
-        return "#1f77b4"
-      }else{
-        return "#ccc"
-      }
+      return "#1f77b4"      
     })
     .attr("r", function(d){
       return scale(d.count);
@@ -157,7 +153,7 @@ var circle = svg.append("g").selectAll("circle")
         .text(function(i) {
           if(objectIsInList(i.name,nodesToShow)==1){
             var returnText ;
-            returnText = "("+(getProbability(d.name,i.name)*100).toFixed(2)+")";            
+            returnText = (getProbability(d.name,i.name)*d.count)+" ("+(getProbability(d.name,i.name)*100).toFixed(2)+"%)";            
             console.log(returnText)
             return returnText;
           }
