@@ -569,7 +569,9 @@ function filterByCondition(condition){
 		var outGoingCount = nodeCountMap[curTuple[0]];
 		var linkCount = linkCountMap[curTuple];
 		var curProbability = parseFloat(linkCount/outGoingCount);
-		markovLinks.push({"source":nodeList.indexOf(curTuple[0]),"target":nodeList.indexOf(curTuple[1]),"probability":""+curProbability})		
+		if(curProbability>0){
+			markovLinks.push({"source":nodeList.indexOf(curTuple[0]),"target":nodeList.indexOf(curTuple[1]),"probability":""+curProbability})		
+		}
 	}
 	//console.log(links);
 	var markovNodes = [];
